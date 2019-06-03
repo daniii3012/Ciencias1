@@ -39,7 +39,7 @@ class lista{
 template <class T>
 
 int lista<T>::get_tam(){
-	int cont = 1;
+	int cont = 0;
 	
 	nodo <T> *aux;
 	aux = cab;
@@ -80,6 +80,7 @@ void lista<T>::insertar_nodo(int pos, T d){
 		insertar_final(d);
 	}else if(pos == 1){
 		insertar_inicio(d);
+		
 	}else{
 		nodo <T> *nuevo, *aux;
 		nuevo = new nodo <T>;
@@ -104,21 +105,22 @@ template <class T>
 
 void lista<T>::insertar_final(T d){
 	int tam = get_tam();
-	int cont = 1;
-	
+	int cont = 0;
 	nodo <T> *nuevo, *aux;
 	nuevo = new nodo <T>;
 	nuevo -> dato = d;
 	nuevo -> sig = NULL;
-	
 	aux = cab;
-	
-	while(cont < tam && aux != NULL){
+	while(cont < tam && aux -> sig != NULL){
 		aux = aux -> sig;
 		cont++;
 	}
+	if(tam == 0){
+		cab = nuevo;
+	}else{
+		aux -> sig = nuevo;
+	}
 	
-	aux -> sig = nuevo;
 	tam++;
 }
 
@@ -127,11 +129,9 @@ template <class T>
 
 void lista<T>::insertar_inicio(T d){
 	int tam = get_tam();
-	
 	nodo <T> *nuevo;
 	nuevo = new nodo <T>;
 	nuevo -> dato = d;
-	
 	nuevo -> sig = cab;
 	cab = nuevo;
 	tam++;
@@ -143,8 +143,7 @@ template <class T>
 void lista<T>::imprimir(){
 	nodo <T> *aux;
 	aux = cab;
-    while (aux != NULL)
-    {
+    while (aux != NULL){
         cout << aux -> dato << " ";
         aux = aux -> sig;
     }
