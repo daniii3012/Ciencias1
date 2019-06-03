@@ -33,6 +33,48 @@ class lista{
 
 template <class T>
 
+int lista<T>::get_tam(){
+	int cont = 1;
+	
+	nodo <T> *aux;
+	aux = cab;
+	
+	while(aux != NULL){
+		aux = aux -> sig;
+		cont++;
+	}
+	
+	return cont;
+}
+
+
+template <class T>
+
+T lista<T>::cambiar(int pos, T d){
+	int cont = 1;
+	
+	nodo <T> *aux *camb;
+	camb = new nodo <T>;
+	camb -> dato = d;
+	
+	aux = cab;
+	
+	while(cont < pos - 1 && aux != NULL){
+		aux = aux -> sig;
+		cont++;
+	}
+	
+	
+	
+	temp = arreglo[i];
+	arreglo[i] = arreglo[der];
+	arreglo[der] = temp;
+	//intercambio(a, i, der);
+	
+}
+
+template <class T>
+
 void lista<T>::insertar_nodo(int pos, T d){
 	int tam = get_tam();
 	int cont;
@@ -67,7 +109,7 @@ void lista<T>::insertar_final(T d){
 	int tam = get_tam();
 	int cont = 1;
 	
-	nodo <T> *nuevo *äux;
+	nodo <T> *nuevo *aux;
 	nuevo = new nodo <T>;
 	nuevo -> dato = d;
 	nuevo -> sig = NULL;
