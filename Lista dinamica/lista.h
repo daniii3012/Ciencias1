@@ -24,7 +24,7 @@ class lista{
 		cab = NULL;
 		tam = 0;	
 	}
-	
+	bool lista_vacia();
 	void insertar_nodo(int pos, T d);
 	void insertar_final(T d);
 	void insertar_inicio(T d);
@@ -149,6 +149,57 @@ void lista<T>::imprimir(){
         aux = aux -> sig;
     }
     cout << endl;
+}
+
+template<typename T>
+void lista<T>::borrar_nodo(int pos)
+{
+    int tam = get_tam();
+    nodo<T> *aux = cab;
+    nodo<T> *aux1 = aux->sig;
+    if (pos < 1 || pos > tam) {
+        cout << "Fuera de rango " << endl;
+    } else if (pos == 1) {
+        cab = aux->sig;
+    } else {
+        for (int i = 2; i <= pos; i++) {
+            if (i == pos) {
+                nodo<T> *aux_nodo = aux1;
+                aux->sig = aux1->sig;
+                delete aux_nodo;
+                tam--;
+            }
+            aux = aux->sig;
+            aux1 = aux1->sig;
+        }
+    }
+}
+
+template <class T>
+T lista <T>::buscar(int pos){
+	int i = 1;
+	nodo<T> *aux;
+	aux = cab;
+	while (aux != NULL && i < pos){
+		aux = aux -> sig;
+		i++;
+	}
+	if (i == pos){ 
+		return aux -> dato;
+	}
+
+}
+
+template <class T>
+bool lista <T>::lista_vacia(){
+	int tam = get_tam();
+	if(tam == 0){
+		cout<<"Lista vacia."<<endl;
+		return true;
+	} else {
+		cout<<"Lista no se encuentra vacia."<<endl;
+		return false;
+	}
 }
 
 #endif
