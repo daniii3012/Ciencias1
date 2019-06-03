@@ -158,7 +158,7 @@ void lista<T>::borrar_nodo(int pos)
     nodo<T> *aux = cab;
     nodo<T> *aux1 = aux->sig;
     if (pos < 1 || pos > tam) {
-        cout << "Fuera de rango " << endl;
+        cout << "La posicion no se encuentra en la lista. " << endl;
     } else if (pos == 1) {
         cab = aux->sig;
     } else {
