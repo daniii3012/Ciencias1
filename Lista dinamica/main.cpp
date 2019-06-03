@@ -24,6 +24,11 @@ int main(int argc, char** argv) {
 	cout << "Lista de int: ";
 	x.cambiar(1, 8);
 	x.imprimir();
+	cout << "Lista de int: ";
+	x.borrar_nodo(2);
+	x.imprimir();
+	cout<<"El número buscado es: "<<x.buscar(3);
+	cout << endl;
 	cout << endl;
 	
 	cout << "Lista de float: ";
@@ -32,6 +37,7 @@ int main(int argc, char** argv) {
 	y.insertar_nodo(3, 1.1);
 	y.cambiar(3, 1.2);
 	y.imprimir();
+	y.lista_vacia();
 	cout << endl;
 	
 	cout << "Lista de char: ";
