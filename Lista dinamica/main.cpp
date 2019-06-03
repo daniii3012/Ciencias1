@@ -17,8 +17,11 @@ int main(int argc, char** argv) {
 	x.imprimir();
 	//cout << x.get_tam() << endl;
 	
-	x.insertar_nodo(1, 8);
+	x.insertar_nodo(1, 9);
 	x.insertar_nodo(4, 2);
+	x.imprimir();
+	
+	x.cambiar(1, 8);
 	x.imprimir();
 	
 	return 0;
