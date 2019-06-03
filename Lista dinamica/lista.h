@@ -61,7 +61,7 @@ T lista<T>::cambiar(int pos, T d){
 	nodo <T> *aux;	
 	aux = cab;
 	
-	while(cont < pos - 1 && aux != NULL){
+	while(cont < pos){
 		aux = aux -> sig;
 		cont++;
 	}
@@ -143,7 +143,6 @@ template <class T>
 void lista<T>::imprimir(){
 	nodo <T> *aux;
 	aux = cab;
-    cout << "Lista: ";
     while (aux != NULL)
     {
         cout << aux -> dato << " ";
