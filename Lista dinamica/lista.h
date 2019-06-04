@@ -1,3 +1,8 @@
+/*
+	Daniel Alejandro Montiel - 20171020049
+	
+*/
+
 //Directrices del pre-procesador
 
 #ifndef LISTA_H

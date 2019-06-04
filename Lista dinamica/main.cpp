@@ -1,3 +1,6 @@
+/*
+	Daniel Alejandro Montiel - 20171020049
+
 #include <iostream>
 #include "lista.h"
 
