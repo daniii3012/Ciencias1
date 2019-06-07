@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
  		//cout<<"Ingrese hobby: ";
  		//cin>>hobby;
 		hobby = hobbys[i-1];
-		listest.insertarEstudiante(nombre, carrera, edad, hobby, i);
+		listest.insertar_estudiante(nombre, carrera, edad, hobby, i);
  	}
 
 	 listest.imprimir();
