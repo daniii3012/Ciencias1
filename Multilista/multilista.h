@@ -46,17 +46,16 @@ class multi{
 		int buscar_por_nombre(cabecera cab, string nombre);
 		int encontrar_carrera_ant(cabecera cab, int i);
 		int encontrar_hobby_ant(cabecera cab, int i);
+	
 		void insertar_estudiante(string nombre, string carrera, int edad, string hobby, int i);
+	
 		void imprimir();
+	
 		void imprimirNombreAZ();
-		void imprimirNombreZA();
 		void imprimirEdad();
 		void imprimirEdadDes();
 		void imprimirCarrera(string car);
 		void imprimirhobby(string hob);
-		void imprimirEstuandCar();
-		void imprimirEstuandHob();
-		void imprimirCarandHob(string car);
 };
 
 int multi::buscar_por_edad(cabecera cab, int edad){
@@ -277,22 +276,6 @@ void multi::imprimirNombreAZ(){
 	for(int i=1;i<11;i++){
 		cout<<est[a].nombre<<endl;
 		a = est[a].sig_nombre;
-	}
-	cout<<endl;	
-}
-
-void multi::imprimirNombreZA(){
-	string nom[11];
-	int temp=10;
-	int a = cab[0].pos;
-	for(int i=1;i<11;i++){
-		//cout<<est[a].nombre<<endl;
-		nom[temp]=est[a].nombre;
-		a = est[a].sig_nombre;
-		temp--;
-	}
-	for(int i=1;i<11;i++){
-		cout<<nom[i]<<endl;
 	}
 	cout<<endl;	
 }
