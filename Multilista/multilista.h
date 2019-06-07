@@ -353,60 +353,8 @@ void multi::imprimirhobby(string car){
 	cout<<endl;
 }
 
-void multi::imprimirEstuandCar(){
-	int a = cab[0].pos;
-	cout<<"Nombre    "<<"Carrera    "<<endl;
-	for(int i=1;i<11;i++){
-		cout<<est[a].nombre<<"    "<<est[a].carrera<<endl;
-		a = est[a].sig_nombre;
-	}
-	cout<<endl;
-}
 
-void multi::imprimirEstuandHob(){
-	int a = cab[0].pos;
-	cout<<"Nombre    "<<"Hobby    "<<endl;
-	for(int i=1;i<11;i++){
-		cout<<est[a].nombre<<"    "<<est[a].hobby<<endl;
-		a = est[a].sig_nombre;
-	}
-	cout<<endl;
-}
 
-void multi::imprimirCarandHob(string car){
-	int b=0;
-	int nat=0,dan=0,bas=0,bei=0;
-	if(car=="Electronica"){
-		b = cab[1].pos;
-	}else if(car=="Industrial"){
-		b = cab[2].pos;
-	}else if(car=="Sistemas"){
-		b = cab[3].pos;
-	}else if(car=="Catastral"){
-		b = cab[4].pos;
-	}
-	for(int i=1;i<11;i++){
-		if(est[b].hobby=="Natacion"&&nat==0){
-			cout<<est[b].hobby<<endl;
-			b = est[b].sig_nombre;
-			nat=1;
-		}else if(est[b].hobby=="Danza"&&dan==0){
-			cout<<est[b].hobby<<endl;
-			b = est[b].sig_nombre;
-			dan=1;
-		}else if(est[b].hobby=="Basket"&&bas==0){
-			cout<<est[b].hobby<<endl;
-			b = est[b].sig_nombre;
-			bas=1;
-		}else if(est[b].hobby=="Beisbol"&&bei==0){
-			cout<<est[b].hobby<<endl;
-			b = est[b].sig_nombre;
-			bei=1;
-		}else{
-			b = est[b].sig_nombre;
-		}
-	}
-	cout<<endl;
-}
+	
 
 #endif
