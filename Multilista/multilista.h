@@ -48,9 +48,7 @@ class multi{
 		void insertarEstudiante(string name, string career, int age, string hobb, int i);
 		void imprimir();
 		void imprimirNombreAZ();
-		void imprimirNombreZA();
 		void imprimirEdad();
-		void imprimirEdadDes();
 		void imprimirCarrera(string car);
 		void imprimirhobby(string hob);
 		void imprimirEstuandCar();
@@ -274,21 +272,7 @@ void multi::imprimirNombreAZ(){
 	}
 	cout<<endl;	
 }
-void multi::imprimirNombreZA(){
-	string nom[11];
-	int temp=10;
-	int a = cab[0].pos;
-	for(int i=1;i<11;i++){
-		//cout<<stu[a].nombre<<endl;
-		nom[temp]=stu[a].nombre;
-		a = stu[a].signombre;
-		temp--;
-	}
-	for(int i=1;i<11;i++){
-		cout<<nom[i]<<endl;
-	}
-	cout<<endl;	
-}
+
 void multi::imprimirEdad(){
 	int b = cab[5].pos;
 	for(int i=1;i<11;i++){
@@ -297,20 +281,7 @@ void multi::imprimirEdad(){
 	}	
 	cout<<endl;
 }
-void multi::imprimirEdadDes(){
-	int ed[11];
-	int temp=10;
-	int b = cab[5].pos;
-	for(int i=1;i<11;i++){
-		ed[temp]= stu[b].edad;
-		b = stu[b].sigedad;
-		temp--;
-	}
-	for(int i=1;i<11;i++){
-		cout<<ed[i]<<endl;
-	}	
-	cout<<endl;
-}
+
 void multi::imprimir(){
 	for(int j=1; j<11; j++){
 		cout<<j<<" "<<stu[j].nombre<<" "<<stu[j].carrera<<" "<<stu[j].edad<<" "<<stu[j].hobby<<endl;
