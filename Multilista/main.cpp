@@ -33,7 +33,8 @@ int main(int argc, char** argv) {
 		hobby = hobbys[i-1];
 		listest.insertar_estudiante(nombre, carrera, edad, hobby, i);
  	}
-
+	
+	 cout<<"Los Estudiantes ingresados son:"<<endl;
 	 listest.imprimir();
 	 cout<<"Estudiantes en orden AZ:"<<endl;
 	 listest.imprimirNombreAZ();
