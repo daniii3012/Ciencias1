@@ -53,7 +53,6 @@ class multi{
 	
 		void imprimirNombreAZ();
 		void imprimirEdad();
-		void imprimirEdadDes();
 		void imprimirCarrera(string car);
 		void imprimirhobby(string hob);
 };
@@ -285,21 +284,6 @@ void multi::imprimirEdad(){
 	for(int i=1;i<11;i++){
 		cout<<est[b].edad<<endl;
 		b = est[b].sig_edad;
-	}	
-	cout<<endl;
-}
-
-void multi::imprimirEdadDes(){
-	int ed[11];
-	int temp=10;
-	int b = cab[5].pos;
-	for(int i=1;i<11;i++){
-		ed[temp]= est[b].edad;
-		b = est[b].sig_edad;
-		temp--;
-	}
-	for(int i=1;i<11;i++){
-		cout<<ed[i]<<endl;
 	}	
 	cout<<endl;
 }
