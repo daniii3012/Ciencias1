@@ -1,3 +1,8 @@
+/*
+	Daniel Alejandro Montiel - 20171020049
+	Angie Gabriela Antolinez - 20151020061
+*/
+
 #include <iostream>
 #include "multilista.h"
 
@@ -30,15 +35,12 @@ int main(int argc, char** argv) {
  	}
 
 	 listest.imprimir();
-	 cout<<"Nombre AZ"<<endl;
+	 cout<<"Estudiantes en orden AZ:"<<endl;
 	 listest.imprimirNombreAZ();
-	 cout<<"Nombre ZA"<<endl;
-
+	 cout<<"Estudiantes en orden de Edad:"<<endl;
 	 listest.imprimirEdad();
-	 cout<<"Edad orden Descendente"<<endl;
-	 listest.imprimirEdadDes();
-	 cout<<"Estudiantes de electronica"<<endl;
 	
+	 cout<<"Estudiantes de electronica"<<endl;
 	 listest.imprimirCarrera("Electronica");
 	 cout<<"Estudiantes de Sistemas"<<endl;
 	 listest.imprimirCarrera("Sistemas");
