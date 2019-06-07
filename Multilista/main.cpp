@@ -33,12 +33,12 @@ int main(int argc, char** argv) {
 	 cout<<"Nombre AZ"<<endl;
 	 listest.imprimirNombreAZ();
 	 cout<<"Nombre ZA"<<endl;
-	 listest.imprimirNombreZA();
-	 cout<<"Edad orden Ascendente"<<endl;
+
 	 listest.imprimirEdad();
 	 cout<<"Edad orden Descendente"<<endl;
 	 listest.imprimirEdadDes();
 	 cout<<"Estudiantes de electronica"<<endl;
+	
 	 listest.imprimirCarrera("Electronica");
 	 cout<<"Estudiantes de Sistemas"<<endl;
 	 listest.imprimirCarrera("Sistemas");
@@ -46,6 +46,7 @@ int main(int argc, char** argv) {
 	 listest.imprimirCarrera("Industrial");
 	 cout<<"Estudiantes de Catastral"<<endl;
 	 listest.imprimirCarrera("Catastral");
+	
 	 cout<<"Estudiantes Danza"<<endl;
 	 listest.imprimirhobby("Danza");
 	 cout<<"Estudiantes Natacion"<<endl;
@@ -54,15 +55,6 @@ int main(int argc, char** argv) {
 	 listest.imprimirhobby("Basket");
 	 cout<<"Estudiantes Beisbol"<<endl;
 	 listest.imprimirhobby("Beisbol");
-	listest.imprimirEstuandCar();
-	listest.imprimirEstuandHob();
-	cout<<"Hobby en Sistemas"<<endl;
-	listest.imprimirCarandHob("Sistemas");
-	cout<<"Hobby en Electronica"<<endl;
-	listest.imprimirCarandHob("Electronica");
-	cout<<"Hobby en Industrial"<<endl;
-	listest.imprimirCarandHob("Industrial");
-	cout<<"Hobby en Catastral"<<endl;
-	listest.imprimirCarandHob("Catastral");
+	
     return 0;
 }
