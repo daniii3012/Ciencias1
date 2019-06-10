@@ -1,3 +1,9 @@
+/*
+	Daniel Alejandro Montiel - 20171020049
+	Angie Gabriela Antolinez - 20151020061
+	
+*/
+
 #include <iostream>
 #include "lista.h"
 using namespace std;
