@@ -1,3 +1,5 @@
+#include <iostream>
+#include "lista.h"
 using namespace std;
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
@@ -100,11 +102,6 @@ int main(int argc, char** argv) {
 				cout << "Numero del postre a borrar: ";
 				cin >> pos;
 				
-				tam2 = lista_postres.buscar(pos).ing.get_tam();
-				
-				for(int i = 1; i <= tam2; i++){
-					lista_postres.buscar(pos).ing.borrar_nodo(i);
-				}
 				lista_postres.borrar_nodo(pos);
 				
 				break;
