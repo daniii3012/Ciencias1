@@ -1,5 +1,3 @@
-#include <iostream>
-#include "lista.h"
 using namespace std;
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
@@ -20,41 +18,98 @@ struct Postre{
 
 int main(int argc, char** argv) {
 	
-	int tam1, tam2;
+	int tam1, tam2, numI, tiempo, cant, opc, pos;
+	string nomP, nomI, proc, tipo, med;
 	
 	lista< Postre<Ing> > lista_postres;
-	
 	Ing ingre;
-	ingre.nom = "Azucar";
-	ingre.cantidad = 10;
-	ingre.medida = "gr";
-	
 	Postre<Ing> postre;
-	postre.nombre = "Fresas con crema";
-	postre.procedimiento = "Mezcla";
-	postre.tipo = "Condensado";
-	postre.tiempo = 7;
-	postre.ing.insertar_inicio(ingre);
 	
-	lista_postres.insertar_inicio(postre);
-	
-	tam1 = lista_postres.get_tam();
-	tam2 = lista_postres.buscar(1).ing.get_tam();
-	
-	for(int i = 1; i <= tam1; i++){
-		cout<<lista_postres.buscar(i).nombre<<endl;
-		cout<<lista_postres.buscar(i).procedimiento<<endl;
-		cout<<lista_postres.buscar(i).tipo<<endl;
-		cout<<lista_postres.buscar(i).tiempo<<endl;
-		for(int j = 1; j <= tam2; j++){
-			cout<<lista_postres.buscar(i).ing.buscar(j).nom;
-			cout<<lista_postres.buscar(i).ing.buscar(j).cantidad;
-			cout<<lista_postres.buscar(i).ing.buscar(j).medida;
+	while(opc != 4){
+		cout << "1) Ingresar Postre" << endl;
+		cout << "2) Ver Postres" << endl;
+		cout << "3) Borrar Postre" << endl;
+		cout << "4) Salir" << endl;
+		cin >> opc;	
+		switch(opc){
+			case 1:
+				system("cls");
+				cout << "Nombre del postre: ";
+				cin >> nomP;
+				postre.nombre = nomP;
+				
+				cout << "Procedimiento: ";
+				cin >> proc;
+				postre.procedimiento = proc;
+				
+				cout << "Tipo: ";
+				cin >> tipo;
+				postre.tipo = tipo;
+				
+				cout << "Tiempo: ";
+				cin >> tiempo;
+				postre.tiempo = tiempo;
+				
+				cout << "Numero de ingredientes: ";
+				cin >> numI;
+				
+				for(int i = 0; i < numI; i++){
+					cout << "Nombre del ingrediente " << (i + 1) << ": ";
+					cin >> nomI;
+					ingre.nom = nomI;
+					
+					cout << "Cantidad: ";
+					cin >> cant;
+					ingre.cantidad = cant;
+					
+					cout << "Medida: ";
+					cin >> med;
+					ingre.medida = med;
+					
+					postre.ing.insertar_inicio(ingre);
+				}
+				
+				lista_postres.insertar_inicio(postre);
+				
+				break;
+			case 2:
+				system("cls");
+				tam1 = lista_postres.get_tam();
+				
+				for(int i = 1; i <= tam1; i++){
+					tam2 = lista_postres.buscar(i).ing.get_tam();
+					cout << i << ". Postre: ";
+					cout << lista_postres.buscar(i).nombre << endl;
+					cout << "           " << lista_postres.buscar(i).procedimiento << endl;
+					cout << "           " << lista_postres.buscar(i).tipo << endl;
+					cout << "           " << lista_postres.buscar(i).tiempo << endl;
+					cout << "   Ingredientes: ";
+					for(int j = 1; j <= tam2; j++){
+						cout << lista_postres.buscar(i).ing.buscar(j).nom << " ";
+						cout << lista_postres.buscar(i).ing.buscar(j).cantidad << " ";
+						cout << lista_postres.buscar(i).ing.buscar(j).medida << " ";
+						cout << endl << "                 ";
+					}
+					cout<<endl;
+				}
+				
+				break;
+			case 3:
+				system("cls");
+				
+				cout << "Numero del postre a borrar: ";
+				cin >> pos;
+				
+				tam2 = lista_postres.buscar(pos).ing.get_tam();
+				
+				for(int i = 1; i <= tam2; i++){
+					lista_postres.buscar(pos).ing.borrar_nodo(i);
+				}
+				lista_postres.borrar_nodo(pos);
+				
+				break;
 		}
 	}
-	//lista_postres.imprimir();
-	
-	
 	
 	
 	return 0;
