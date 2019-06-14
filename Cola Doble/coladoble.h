@@ -53,6 +53,39 @@ cola_doble::cola_doble(){
 	fin -> ant = cab;
 }
 */
+template <class T>
+void cola_doble<T>::enqueue(T d, char pos )
+{
+	nodo <T> *nuevo;
+	nuevo = new nodo <T>;
+	nuevo -> dato = d;
+	if (pos=='I'){
+		nuevo->sig=fin;
+		nuevo->ant= fin->ant;
+		fin->ant->sig=nuevo;
+		fin->ant=nuevo;
+	}
+	else{
+		nuevo->ant=cab;
+		nuevo->sig=cab->sig;
+		cab->sig->ant=nuevo;
+		cab->sig=nuevo;
+	}
+}
+template <class T>
+void cola_doble<T>::imprimir(){
+	    nodo<T> *aux;
+    aux = cab->sig;
+    while(aux !=fin ){
+    	cout<<aux->dato<<" ";
+    	aux = aux->sig;
+	} 
+}
+
+
+
+
+
 
 template <class T>
 
