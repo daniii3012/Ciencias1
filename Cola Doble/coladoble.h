@@ -19,15 +19,13 @@ template <class T>
 
 class cola_doble{
 	
-	nodo <T> *cab_izq, *cab_der, *fin_izq, *fin_der;
+	nodo <T> *cab, *fin;
 	
 	int tam;
 		
 	public: cola_doble(){
-		cab_izq = NULL;
-		cab_der = NULL;
-		fin_izq = NULL;
-		fin_der = NULL;
+		cab = NULL;
+		fin = NULL;
 		tam = 0;	
 	}
 	void enqueue(T d, char pos);
@@ -38,18 +36,14 @@ class cola_doble{
 };
 
 cola_doble::cola_doble(){ 
-	cab_izq = new nodo;
-	cab_der = new nodo;
-	fin_izq = cab_der;
-	fin_der = cab_izq;
+	cab = new nodo;
+	fin = new nodo;
 	
-	cab_izq -> sig = fin_izq;
-	cab_izq -> ant = NULL;
-	cab_izq = fin_der;
+	cab -> sig = fin;
+	cab -> ant = NULL;
 	
-	cab_der -> sig = NULL;
-	cab_der -> ant = fin_der;
-	cab_der = fin_izq;
+	fin -> sig = NULL;
+	fin -> ant = cab;
 }
 
 
