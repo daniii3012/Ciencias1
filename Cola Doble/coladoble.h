@@ -39,20 +39,8 @@ class cola_doble{
 	T dequeue(char pos);
 	bool cola_doble_vacia();
 	int get_tam();
-	//void imprimir();
+	void imprimir(char pos);
 };
-/*
-cola_doble::cola_doble(){ 
-	cab = new nodo;
-	fin = new nodo;
-	
-	cab -> sig = fin;
-	cab -> ant = NULL;
-	
-	fin -> sig = NULL;
-	fin -> ant = cab;
-}
-*/
 
 template <class T>
 
@@ -81,6 +69,47 @@ bool cola_doble<T>::cola_doble_vacia(){
 	}
 }
 
+template <class T>
+
+void cola_doble<T>::enqueue(T d, char pos ){
+	nodo <T> *nuevo;
+	nuevo = new nodo <T>;
+	nuevo -> dato = d;
+	if (pos=='I'){
+		nuevo->sig=fin;
+		nuevo->ant= fin->ant;
+		fin->ant->sig=nuevo;
+		fin->ant=nuevo;
+	}
+	else{
+		nuevo->ant=cab;
+		nuevo->sig=cab->sig;
+		cab->sig->ant=nuevo;
+		cab->sig=nuevo;
+	}
+}
+
+
+template <class T>
+
+void cola_doble<T>::imprimir(char pos){
+	nodo<T> *aux;
+	if(pos == 'I'){
+		aux = cab->sig;
+	    while(aux != fin ){
+	    	cout << aux->dato << " ";
+	    	aux = aux->sig;
+		} 
+	} else if (pos == 'D'){
+		aux = fin -> ant;
+		while(aux != cab){
+			cout << aux -> dato << " ";
+			aux = aux -> ant;
+		}
+	}
+    
+}
+
 
 template <class T>
 
@@ -89,20 +118,18 @@ T cola_doble<T>::dequeue(char pos){
 	T d;
 
 	if(!cola_doble_vacia()){
-		if(pos == 'izq'){
+		if(pos == 'I'){
 			aux = cab -> sig;
 			d = aux -> dato;
 			cab -> sig = aux -> sig;
 			aux -> sig -> ant = cab;
 			delete aux;
-			tam--;
-		} else if (pos == 'der'){
+		} else if (pos == 'D'){
 			aux = fin -> ant;
 			d = aux -> dato;
 			fin -> ant = aux -> ant;
 			aux -> ant -> sig = fin;
 			delete aux;
-			tam--;
 		}
 	}
 }
