@@ -23,18 +23,25 @@ class cola_doble{
 	
 	int tam;
 		
-	public: cola_doble(){
-		cab = NULL;
-		fin = NULL;
-		tam = 0;	
-	}
+	public: 
+		cola_doble(){
+			cab = new nodo;
+			fin = new nodo;
+			
+			cab -> sig = fin;
+			cab -> ant = NULL;
+			
+			fin -> sig = NULL;
+			fin -> ant = cab;
+			tam = 0;	
+		}
 	void enqueue(T d, char pos);
 	void dequeue(char pos);
 	bool cola_doble_vacia();
 	int get_tam();
 	//void imprimir();
 };
-
+/*
 cola_doble::cola_doble(){ 
 	cab = new nodo;
 	fin = new nodo;
@@ -45,14 +52,14 @@ cola_doble::cola_doble(){
 	fin -> sig = NULL;
 	fin -> ant = cab;
 }
-
+*/
 
 template <class T>
 
 int cola_doble<T>::get_tam(){
 	int cont = 0;	
 	nodo <T> *aux;
-	aux = cab_izq;
+	aux = cab;
 	
 	while(aux != NULL){
 		aux = aux -> sig;
