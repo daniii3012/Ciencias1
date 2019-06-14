@@ -39,7 +39,7 @@ class cola_doble{
 	T dequeue(char pos);
 	bool cola_doble_vacia();
 	int get_tam();
-	//void imprimir();
+	void imprimir();
 };
 /*
 cola_doble::cola_doble(){ 
