@@ -25,6 +25,9 @@ class cola_doble{
 		
 	public: 
 		cola_doble(){
+			cab = new nodo <T>;
+			fin = new nodo <T>;
+			
 			cab -> sig = fin;
 			cab -> ant = NULL;
 			
@@ -33,7 +36,7 @@ class cola_doble{
 			tam = 0;	
 		}
 	void enqueue(T d, char pos);
-	void dequeue(char pos);
+	T dequeue(char pos);
 	bool cola_doble_vacia();
 	int get_tam();
 	//void imprimir();
@@ -56,9 +59,9 @@ template <class T>
 int cola_doble<T>::get_tam(){
 	int cont = 0;	
 	nodo <T> *aux;
-	aux = cab;
+	aux = cab -> sig;
 	
-	while(aux != NULL){
+	while(aux != fin){
 		aux = aux -> sig;
 		cont++;
 	}
@@ -81,8 +84,27 @@ bool cola_doble<T>::cola_doble_vacia(){
 
 template <class T>
 
-void cola_doble<T>::dequeue(char pos){
-	
+T cola_doble<T>::dequeue(char pos){	
+	nodo <T> *aux;
+	T d;
+
+	if(!cola_doble_vacia()){
+		if(pos == 'izq'){
+			aux = cab -> sig;
+			d = aux -> dato;
+			cab -> sig = aux -> sig;
+			aux -> sig -> ant = cab;
+			delete aux;
+			tam--;
+		} else if (pos == 'der'){
+			aux = fin -> ant;
+			d = aux -> dato;
+			fin -> ant = aux -> ant;
+			aux -> ant -> sig = fin;
+			delete aux;
+			tam--;
+		}
+	}
 }
 
 #endif
