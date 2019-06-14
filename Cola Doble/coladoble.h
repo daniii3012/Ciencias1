@@ -2,8 +2,8 @@
 	Daniel Alejandro Montiel - 20171020049
 	Angie Gabriela Antolinez - 20151020061
 */
-#ifndef LISTA_H
-#define LISTA_H
+#ifndef COLADOBLE_H
+#define COLADOBLE_H
 #include <iostream>
 using namespace std;
 
@@ -25,9 +25,6 @@ class cola_doble{
 		
 	public: 
 		cola_doble(){
-			cab = new nodo;
-			fin = new nodo;
-			
 			cab -> sig = fin;
 			cab -> ant = NULL;
 			
@@ -72,7 +69,7 @@ int cola_doble<T>::get_tam(){
 
 template <class T>
 
-bool cola_doble<T>::lista_vacia(){
+bool cola_doble<T>::cola_doble_vacia(){
 	int tam = get_tam();
 	if(tam == 0){
 		return true;
