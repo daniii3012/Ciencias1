@@ -31,9 +31,9 @@ int main(int argc, char *argv[]){
 		x++;
        	}
   	}
- 	cout<<"Elija uno de los símbolos que aparecen a continuación: \n";
+ 	cout<<"Elija uno de los sÃ­mbolos que aparecen a continuaciÃ³n: \n";
 
-	for(j=1; j<tam/2; j++){
+	for(j=1; j<=tam/2; j++){
 		cout<<"  Gr1  "<<"Gr2  "<<endl;
   		while (!Cola.ColaVacia()){
 		  	for (i=0; i<2; i++){
@@ -44,12 +44,12 @@ int main(int argc, char *argv[]){
     	cout<<"\n"; 
     	}
  
-   		cout<< "Elija el grupo en el que quedò el simbolo elegido (1 o 2): ";
+   		cout<< "Elija el grupo en el que quedÃ² el simbolo elegido (1 o 2): ";
   		cin>> grupo;
   		
   		switch(grupo){
-        	case 1 : {orden[0]=1; orden[1]=0; }//orden[2]=2;break;}
-         	case 2 : {orden[0]=0; orden[1]=1;} //orden[2]=2;break;}       
+        	case 1 : {orden[0]=0; orden[1]=1; break; }//orden[2]=2;break;}
+         	case 2 : {orden[0]=1; orden[1]=0; break; } //orden[2]=2;break;}       
          	//case 3 : {orden[0]=0; orden[1]=2; //orden[2]=1;break;}       
         }
         
@@ -59,9 +59,8 @@ int main(int argc, char *argv[]){
 			}
     	}
   	}
-
-	j=tam-tam/2;
-
+	j=(tam/2);
+	
 	for (i=1; i<=j; i++){
 		x=Cola.AtenderCola();
 	}
