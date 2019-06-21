@@ -184,6 +184,22 @@ void arbolBin::niveles(){
 	}
 }
 
+void arbolBin::inorden(){
+	Pila stack(50);
+	int raiz = arbol[0].izq;
+	int aux = raiz;
+	stack.meter(raiz);
+	while(stack.vacia() == 0){
+		 while (aux !=  NULL) 
+        { 
+            stack.meter(aux); 
+            aux = arbol[aux].izq; 
+        }
+		aux =  stack.sacar();
+        cout << arbol[aux].dato<< " "; 
+        aux = arbol[aux].der; 
+	}
+}
 void arbolBin::imprimir(){
 	for(int i = 0; i < tam; i++){
 		cout << i << " Dato: " << arbol[i].dato << " ";
