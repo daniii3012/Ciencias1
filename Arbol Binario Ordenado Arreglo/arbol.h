@@ -65,10 +65,10 @@ void arbolBin::insertar(int d){
 	}
 	
 	for(int i = 1; i < tam; i++){
-		if(arbol[pos].dato >= arbol[i].dato && i != pos){
+		if(arbol[pos].dato >= arbol[i].dato && arbol[i].der == 0 && i != pos){
 			arbol[i].der = pos;
 			break;
-		}else if(arbol[pos].dato < arbol[i].dato && i != pos){
+		}else if(arbol[pos].dato < arbol[i].dato && arbol[i].izq == 0 && i != pos){
 			arbol[i].izq = pos;
 			break;
 		}
