@@ -52,7 +52,7 @@ class arbolBin{
 void arbolBin::insertar(int d){
 	int aux = 1;
 	int j = 0;
-	int raiz = 0;
+	int cont = 0;
 	int pos = arbol[0].der;
 	arbol[pos].dato = d;
 	arbol[pos].izq = 0;	
@@ -61,7 +61,7 @@ void arbolBin::insertar(int d){
 	// Actualiza el valor de las posiciones libres en cada posicion
 	for(int i = 1; i < tam; i++){
 		if(arbol[i].dato != NULL){
-			raiz++;
+			cont++;
 		}
 		if(arbol[i].dato == NULL){
 			arbol[j].der = i;
@@ -89,12 +89,12 @@ void arbolBin::insertar(int d){
 	}
 	
 	// Posiciones libres = 0
-	if(raiz == tam-1){
+	if(cont == tam-1){
 		arbol[0].der = 0;
 	}
 	
 	// Asignacion de la raiz en la posicion de control
-	if(raiz == 1){
+	if(cont == 1){
 		for(int i = 0; i < tam; i++){
 			if(arbol[i].dato != NULL){
 				arbol[0].izq = i;
