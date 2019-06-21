@@ -9,14 +9,20 @@ using namespace std;
 
 int main(int argc, char** argv) {
 	
-	arbol arbolBin(4);
+	arbolBin arbol(4);
 	
-	arbolBin.imprimir(); 
-	arbolBin.insertar(100);
-	
+	arbol.imprimir(); 
+	arbol.insertar(100);
 	cout << endl;
+	arbol.imprimir();
 	
-	arbolBin.imprimir(); 
+	arbol.insertar(50);
+	cout << endl;
+	arbol.imprimir();
+	
+	arbol.insertar(150);
+	cout << endl;
+	arbol.imprimir();
 	
 	return 0;
 }

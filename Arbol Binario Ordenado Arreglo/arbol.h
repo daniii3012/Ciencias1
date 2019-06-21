@@ -15,23 +15,23 @@ struct arbol_array{
 	int der;	
 };
 
-class arbol{
-	arbol_array *arbolBin;
+class arbolBin{
+	arbol_array *arbol;
 	int tam;
 	public:
-		arbol(int n){
+		arbolBin(int n){
 			tam = n;
 			int i;
-			arbolBin = new arbol_array[tam];
+			arbol = new arbol_array[tam];
 			
 			for(i = 0; i < tam; i++){
-				arbolBin[i].dato = NULL;
-				arbolBin[i].izq = NULL;
-				arbolBin[i].der = NULL;
+				arbol[i].dato = NULL;
+				arbol[i].izq = NULL;
+				arbol[i].der = NULL;
 			}
 			
 			for(i = 0; i < tam-1; i++){
-				arbolBin[i].der = i+1;
+				arbol[i].der = i+1;
 			}
 		}
 		void insertar(int d);
@@ -45,22 +45,40 @@ class arbol{
 		
 };
 
-void arbol::insertar(int d){
-	int pos = arbolBin[0].der;
-	arbolBin[pos].dato = d;
-	arbolBin[pos].izq = 0;	
-	arbolBin[pos].der = 0;
+void arbolBin::insertar(int d){
+	int j = 0;
+	int raiz = 0;
+	int pos = arbol[0].der;
+	arbol[pos].dato = d;
+	arbol[pos].izq = 0;	
+	arbol[pos].der = 0;
 	
-	for(int i = 0; i < tam; i++){
-		
+	
+	for(int i = 1; i < tam; i++){
+		if(arbol[i].dato != NULL){
+			raiz++;
+		}
+		if(arbol[i].dato == NULL){
+			arbol[j].der = i;
+			j++;
+		}
+	}
+	
+	// Asignacion de la raiz en la posicion de control
+	if(raiz == 1){
+		for(int k = 0; k < tam; k++){
+			if(arbol[k].dato != NULL){
+				arbol[0].izq = k;
+			}
+		}
 	}
 }
 
-void arbol::imprimir(){
+void arbolBin::imprimir(){
 	for(int i = 0; i < tam; i++){
-		cout << "Dato: " << arbolBin[i].dato << " ";
-		cout << "Izq: " << arbolBin[i].izq << " ";
-		cout << "Der: " << arbolBin[i].der << " ";
+		cout << i << " Dato: " << arbol[i].dato << " ";
+		cout << "Izq: " << arbol[i].izq << " ";
+		cout << "Der: " << arbol[i].der << " ";
 		cout << endl;
 	}
 }
