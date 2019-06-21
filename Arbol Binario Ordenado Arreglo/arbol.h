@@ -25,7 +25,7 @@ class arbol{
 			arbolBin = new arbol_array[tam];
 			
 			for(i = 0; i < tam; i++){
-				arbolBin[i].dato = 0;
+				arbolBin[i].dato = NULL;
 				arbolBin[i].izq = 0;
 				arbolBin[i].der = 0;
 			}
@@ -34,10 +34,20 @@ class arbol{
 				arbolBin[i].der = i+1;
 			}
 		}
-		
+		void insertar(int d);
+		bool buscar(int d);
+		void inorden();
+		void preorden();
+		void posorden();
+		void niveles();
+		void eliminar(int d);
 		void imprimir();
 		
 };
+
+void arbol::insertar(int d){
+	
+}
 
 void arbol::imprimir(){
 	for(int i = 0; i < tam; i++){
