@@ -5,6 +5,7 @@
 #ifndef ARBOL_H
 #define ARBOL_H
 #include <iostream>
+#include "pila.h"
 
 using namespace std;
 
@@ -96,6 +97,47 @@ void arbolBin::insertar(int d){
 				arbol[0].izq = i;
 			}
 		}
+	}
+}
+
+void arbolBin::preorden(){
+	Pila stack(50);
+	int raiz = arbol[0].izq;
+	int aux = raiz;
+	stack.meter(raiz);
+	
+	while(stack.vacia() == 0){
+		aux = stack.sacar();
+		cout << arbol[aux].dato << " ";
+		if(arbol[aux].der != 0){
+			stack.meter(arbol[aux].der);
+		}
+		if(arbol[aux].izq != 0){
+			stack.meter(arbol[aux].izq);
+		}
+	}
+}
+
+void arbolBin::posorden(){
+	Pila stack1(50), stack2(50);
+	int raiz = arbol[0].izq;
+	int aux = raiz;
+	stack1.meter(raiz);
+	
+	while(stack1.vacia() == 0){
+		aux = stack1.sacar();
+		stack2.meter(aux);
+		if(arbol[aux].izq != 0){
+			stack1.meter(arbol[aux].izq);
+		}
+		if(arbol[aux].der != 0){
+			stack1.meter(arbol[aux].der);
+		}
+	}
+	
+	while(stack2.vacia() == 0){
+		aux = stack2.sacar();
+		cout << arbol[aux].dato << " ";
 	}
 }
 

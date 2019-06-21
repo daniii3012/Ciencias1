@@ -1,5 +1,5 @@
 #include <iostream>
-#include "pila.h"
+#include "pila1.h"
 using namespace std;
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
@@ -8,9 +8,19 @@ using namespace std;
 
 
 int main(int argc, char** argv) {
-	/*
 	char c; 
 	Pila guardar(50);
+	guardar.meter('1');
+	guardar.meter('2');
+	guardar.meter('3');
+	guardar.meter('4');
+	cout << guardar.vacia() << endl;
+	cout << guardar.sacar() << endl;
+	cout << guardar.sacar() << endl;
+	cout << guardar.sacar() << endl;
+	cout << guardar.sacar() << endl;
+	cout << guardar.vacia() << endl;
+	/*
 	while(cin.get(c)){ 
 		while(c>='0' && c<='9'){
 			cout.put(c); 
@@ -22,6 +32,7 @@ int main(int argc, char** argv) {
 	  	if (c!='(') cout << ' ';
 	}
 	*/
+	/*
 	char c; Pila acc(50); int x;
 
 	while(cin.get(c)){
@@ -34,5 +45,6 @@ int main(int argc, char** argv) {
  		if (c== '*') x= acc.sacar() * acc.sacar();
 		acc.meter(x);
 	s}
+	*/
 
 }

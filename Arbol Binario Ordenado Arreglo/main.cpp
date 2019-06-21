@@ -21,5 +21,14 @@ int main(int argc, char** argv) {
 	arbol.insertar(105);
 	arbol.imprimir();
 	
+	//cout << endl << "Inorden: ";
+	//arbol.inorden();
+	
+	cout << endl << "Preorden: ";
+	arbol.preorden();
+	
+	cout << endl << "Posorden: ";
+	arbol.posorden();
+	
 	return 0;
 }
