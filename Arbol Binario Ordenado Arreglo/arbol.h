@@ -119,6 +119,22 @@ int arbolBin::buscar(int raiz, int d){
 	}
 }
 
+void arbolBin::inorden(){
+	Pila stack(50);
+	int raiz = arbol[0].izq;
+	int aux = raiz;
+	
+	while(stack.vacia() == 0 || aux != 0){
+		while (aux != 0){ 
+        	stack.meter(aux); 
+            aux = arbol[aux].izq; 
+        }
+		aux = stack.sacar();
+        cout << arbol[aux].dato << " "; 
+        aux = arbol[aux].der; 
+	}
+}
+
 void arbolBin::preorden(){
 	Pila stack(50);
 	int raiz = arbol[0].izq;

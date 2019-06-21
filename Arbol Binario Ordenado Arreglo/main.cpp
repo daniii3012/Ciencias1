@@ -26,9 +26,9 @@ int main(int argc, char** argv) {
 	cin >> num;
 	cout << "Busqueda en la posicion: " << arbol.buscar(arbol.get_raiz(), num) << endl;
 	
-	//cout << endl << "Inorden: ";
-	//arbol.inorden();
-	//cout << endl;
+	cout << endl << "Inorden: ";
+	arbol.inorden();
+	cout << endl;
 	
 	cout << endl << "Preorden: ";
 	arbol.preorden();
