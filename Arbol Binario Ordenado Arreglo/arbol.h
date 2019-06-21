@@ -43,7 +43,8 @@ class arbolBin{
 		void preorden();
 		void posorden();
 		void niveles();
-		void eliminar(int d);
+		int min(int raiz);
+		int eliminar(int raiz, int d);
 		void imprimir();
 		
 };
@@ -68,7 +69,7 @@ void arbolBin::insertar(int d){
 		}
 	}
 	
-	// Asigna los hijos de cada dato
+	// Asigna los hijos de cada posicion
 	for(int i = 1; i < tam; i++){
 		if(arbol[pos].dato >= arbol[aux].dato && aux != pos){
 			if(arbol[aux].der != 0){
@@ -127,11 +128,11 @@ void arbolBin::inorden(){
 	while(stack.vacia() == 0 || aux != 0){
 		while (aux != 0){ 
         	stack.meter(aux); 
-            aux = arbol[aux].izq; 
-        }
+        	aux = arbol[aux].izq; 
+    	}
 		aux = stack.sacar();
-        cout << arbol[aux].dato << " "; 
-        aux = arbol[aux].der; 
+    	cout << arbol[aux].dato << " "; 
+    	aux = arbol[aux].der; 
 	}
 }
 
@@ -196,6 +197,72 @@ void arbolBin::niveles(){
 				p.enqueue(arbol[aux].der);
 			}
 			cout << arbol[aux].dato << " ";
+		}
+	}
+}
+
+int arbolBin::min(int raiz){
+	int aux = raiz;
+	while(aux != 0 && arbol[aux].izq != 0){
+		aux = arbol[aux].izq;
+	}
+	return aux;
+}
+
+int arbolBin::eliminar(int raiz, int d){
+	int aux;
+	int j = 0;
+	int cont = 0;
+	
+	/*
+	if(raiz == 0){
+		//return raiz;
+	}
+	if(d < arbol[raiz].dato){
+		cout << "Control 1 " << raiz << endl;
+		arbol[raiz].izq = eliminar(arbol[raiz].izq, d);
+	}else if(d > arbol[raiz].dato){
+		cout << "Control 2 " << raiz << endl;
+		arbol[raiz].der = eliminar(arbol[raiz].der, d);
+	}else{
+		cout << "Control 3" << raiz << endl;
+		
+		if(arbol[raiz].izq == 0){
+			//return arbol[raiz].der;
+			cout << "Delete izq" << endl;
+		}else if(arbol[raiz].der == 0){
+			//return arbol[raiz].izq;
+			cout << "Delete der" << endl;
+		}
+			
+		aux = min(arbol[raiz].der);
+		cout << "Aux: " << aux << endl;
+		arbol[raiz].dato = arbol[aux].dato;
+		arbol[raiz].der = eliminar(arbol[raiz].der, arbol[aux].dato);
+	}
+	//return raiz;
+	*/
+	
+	// Actualiza el valor de las posiciones libres en cada posicion
+	for(int i = 1; i < tam; i++){
+		if(arbol[i].dato != NULL){
+			cont++;
+		}
+		if(arbol[i].dato == NULL){
+			arbol[j].der = i;
+			j = i;
+		}
+	}
+	// Posiciones libres = 0
+	if(cont == tam-1){
+		arbol[0].der = 0;
+	}
+	// Asignacion de la raiz en la posicion de control
+	if(cont == 1){
+		for(int i = 0; i < tam; i++){
+			if(arbol[i].dato != NULL){
+				arbol[0].izq = i;
+			}
 		}
 	}
 }
