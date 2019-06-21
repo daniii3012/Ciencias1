@@ -26,8 +26,8 @@ class arbol{
 			
 			for(i = 0; i < tam; i++){
 				arbolBin[i].dato = NULL;
-				arbolBin[i].izq = 0;
-				arbolBin[i].der = 0;
+				arbolBin[i].izq = NULL;
+				arbolBin[i].der = NULL;
 			}
 			
 			for(i = 0; i < tam-1; i++){
@@ -46,7 +46,14 @@ class arbol{
 };
 
 void arbol::insertar(int d){
+	int pos = arbolBin[0].der;
+	arbolBin[pos].dato = d;
+	arbolBin[pos].izq = 0;	
+	arbolBin[pos].der = 0;
 	
+	for(int i = 0; i < tam; i++){
+		
+	}
 }
 
 void arbol::imprimir(){

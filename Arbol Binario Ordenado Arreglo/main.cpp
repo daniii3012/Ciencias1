@@ -11,7 +11,12 @@ int main(int argc, char** argv) {
 	
 	arbol arbolBin(4);
 	
-	arbolBin.imprimir();
+	arbolBin.imprimir(); 
+	arbolBin.insertar(100);
+	
+	cout << endl;
+	
+	arbolBin.imprimir(); 
 	
 	return 0;
 }
