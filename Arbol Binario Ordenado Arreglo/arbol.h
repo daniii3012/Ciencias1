@@ -6,6 +6,7 @@
 #define ARBOL_H
 #include <iostream>
 #include "pila.h"
+#include "cola.h"
 
 using namespace std;
 
@@ -138,6 +139,30 @@ void arbolBin::posorden(){
 	while(stack2.vacia() == 0){
 		aux = stack2.sacar();
 		cout << arbol[aux].dato << " ";
+	}
+}
+
+void arbolBin::niveles(){
+	cola_doble<int> p;
+	int raiz = arbol[0].izq;
+	int aux = raiz;
+	p.enqueue(raiz);
+	p.enqueue(NULL);
+	
+	while(p.get_tam() > 1){
+		aux = p.dequeue();
+		if(aux == NULL){
+			p.enqueue(NULL);
+			cout << endl;
+		}else{
+			if(arbol[aux].izq != 0){
+				p.enqueue(arbol[aux].izq);
+			}
+			if(arbol[aux].der != 0){
+				p.enqueue(arbol[aux].der);
+			}
+			cout << arbol[aux].dato << " ";
+		}
 	}
 }
 

@@ -30,5 +30,8 @@ int main(int argc, char** argv) {
 	cout << endl << "Posorden: ";
 	arbol.posorden();
 	
+	cout << endl << "Niveles: " << endl;;
+	arbol.niveles();
+	
 	return 0;
 }
