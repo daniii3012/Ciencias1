@@ -55,6 +55,7 @@ void arbolBin::insertar(int d){
 	
 	for(int i = 1; i < tam; i++){
 		if(arbol[i].dato != NULL){
+			raiz++;
 		}
 		if(arbol[i].dato == NULL){
 			arbol[j].der = i;
