@@ -46,7 +46,7 @@ class arbolBin{
 };
 
 void arbolBin::insertar(int d){
-	int j = 0;
+	int j;
 	int raiz = 0;
 	int pos = arbol[0].der;
 	arbol[pos].dato = d;
@@ -60,8 +60,9 @@ void arbolBin::insertar(int d){
 		}
 		if(arbol[i].dato == NULL){
 			arbol[j].der = i;
-			j++;
+			j = i;
 		}
+		
 	}
 	
 	// Asignacion de la raiz en la posicion de control
