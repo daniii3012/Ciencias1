@@ -46,6 +46,7 @@ class arbolBin{
 };
 
 void arbolBin::insertar(int d){
+	int aux = 1;
 	int j = 0;
 	int raiz = 0;
 	int pos = arbol[0].der;
@@ -53,6 +54,7 @@ void arbolBin::insertar(int d){
 	arbol[pos].izq = 0;	
 	arbol[pos].der = 0;
 	
+	// Actualiza el valor de las posiciones libres en cada posicion
 	for(int i = 1; i < tam; i++){
 		if(arbol[i].dato != NULL){
 			raiz++;
@@ -61,17 +63,30 @@ void arbolBin::insertar(int d){
 			arbol[j].der = i;
 			j = i;
 		}
-	
 	}
 	
+	// Asigna los hijos de cada dato
 	for(int i = 1; i < tam; i++){
-		if(arbol[pos].dato >= arbol[i].dato && arbol[i].der == 0 && i != pos){
-			arbol[i].der = pos;
-			break;
-		}else if(arbol[pos].dato < arbol[i].dato && arbol[i].izq == 0 && i != pos){
-			arbol[i].izq = pos;
-			break;
+		if(arbol[pos].dato >= arbol[aux].dato && aux != pos){
+			if(arbol[aux].der != 0){
+				aux = arbol[aux].der;
+			}else if(arbol[aux].der == 0){
+				arbol[aux].der = pos;
+				break;
+			}
+		}else if(arbol[pos].dato < arbol[aux].dato && aux != pos){
+			if(arbol[aux].izq != 0){
+				aux = arbol[aux].izq;
+			}else if(arbol[aux].izq == 0){
+				arbol[aux].izq = pos;
+				break;
+			}
 		}
+	}
+	
+	// Posiciones libres = 0
+	if(raiz == tam-1){
+		arbol[0].der = 0;
 	}
 	
 	// Asignacion de la raiz en la posicion de control
