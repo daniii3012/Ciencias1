@@ -37,7 +37,8 @@ class arbolBin{
 			}
 		}
 		void insertar(int d);
-		bool buscar(int d);
+		int get_raiz();
+		int buscar(int raiz, int d);
 		void inorden();
 		void preorden();
 		void posorden();
@@ -98,6 +99,23 @@ void arbolBin::insertar(int d){
 				arbol[0].izq = i;
 			}
 		}
+	}
+}
+
+int arbolBin::get_raiz(){
+	return arbol[0].izq;
+}
+
+int arbolBin::buscar(int raiz, int d){
+	if(raiz == 0 || arbol[raiz].dato == d){
+		//return arbol[raiz].dato;
+		return raiz;
+	}
+	
+	if(d > arbol[raiz].dato){
+		return buscar(arbol[raiz].der, d);
+	}else{
+		return buscar(arbol[raiz].izq, d);
 	}
 }
 
@@ -173,6 +191,7 @@ void arbolBin::imprimir(){
 		cout << "Der: " << arbol[i].der << " ";
 		cout << endl;
 	}
+	cout << endl;
 }
 
 #endif

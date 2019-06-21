@@ -8,7 +8,7 @@
 using namespace std;
 
 int main(int argc, char** argv) {
-	
+	int num;
 	arbolBin arbol(9);
 	
 	arbol.insertar(100);
@@ -21,14 +21,22 @@ int main(int argc, char** argv) {
 	arbol.insertar(105);
 	arbol.imprimir();
 	
+	// Buscar
+	cout << "Buscar: ";
+	cin >> num;
+	cout << "Busqueda en la posicion: " << arbol.buscar(arbol.get_raiz(), num) << endl;
+	
 	//cout << endl << "Inorden: ";
 	//arbol.inorden();
+	//cout << endl;
 	
 	cout << endl << "Preorden: ";
 	arbol.preorden();
+	cout << endl;
 	
 	cout << endl << "Posorden: ";
 	arbol.posorden();
+	cout << endl;
 	
 	cout << endl << "Niveles: " << endl;;
 	arbol.niveles();
