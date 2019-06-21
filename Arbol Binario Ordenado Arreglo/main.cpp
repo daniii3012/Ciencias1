@@ -9,7 +9,7 @@ using namespace std;
 
 int main(int argc, char** argv) {
 	
-	arbolBin arbol(4);
+	arbolBin arbol(6);
 	
 	arbol.imprimir(); 
 	arbol.insertar(100);
@@ -21,6 +21,14 @@ int main(int argc, char** argv) {
 	arbol.imprimir();
 	
 	arbol.insertar(150);
+	cout << endl;
+	arbol.imprimir();
+	
+	arbol.insertar(75);
+	cout << endl;
+	arbol.imprimir();
+	
+	arbol.insertar(125);
 	cout << endl;
 	arbol.imprimir();
 	

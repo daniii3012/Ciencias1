@@ -46,30 +46,38 @@ class arbolBin{
 };
 
 void arbolBin::insertar(int d){
-	int j;
+	int j = 0;
 	int raiz = 0;
 	int pos = arbol[0].der;
 	arbol[pos].dato = d;
 	arbol[pos].izq = 0;	
 	arbol[pos].der = 0;
 	
-	
 	for(int i = 1; i < tam; i++){
 		if(arbol[i].dato != NULL){
-			raiz++;
 		}
 		if(arbol[i].dato == NULL){
 			arbol[j].der = i;
 			j = i;
 		}
-		
+	
+	}
+	
+	for(int i = 1; i < tam; i++){
+		if(arbol[pos].dato >= arbol[i].dato && i != pos){
+			arbol[i].der = pos;
+			break;
+		}else if(arbol[pos].dato < arbol[i].dato && i != pos){
+			arbol[i].izq = pos;
+			break;
+		}
 	}
 	
 	// Asignacion de la raiz en la posicion de control
 	if(raiz == 1){
-		for(int k = 0; k < tam; k++){
-			if(arbol[k].dato != NULL){
-				arbol[0].izq = k;
+		for(int i = 0; i < tam; i++){
+			if(arbol[i].dato != NULL){
+				arbol[0].izq = i;
 			}
 		}
 	}
