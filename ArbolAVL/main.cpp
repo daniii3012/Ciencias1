@@ -10,23 +10,9 @@
 #include "ArbolBinarioOrdenado.h"	
 
 using namespace std;	
-int comparar(int a, int b);	
+int comparar(int a, int b);		
 
-template <class T>	
-void verArbol( Node<T>* Node, int n){	
-	if(Node==NULL)	
-		return;	
-	verArbol(Node->getRight(), n+1);	
-
-	for(int i=0; i<n; i++)	
-		cout<<"\t\t";	
-
-	cout<< Node->getData() <<endl;	
-
-	verArbol(Node->getLeft(), n+1);	
-}	
-
- int main(int argc, char **argv) {	
+int main(int argc, char **argv) {	
 	int (*fptr)(int, int);	
 	fptr = comparar;	
 	AVLTree<int>* avl = new AVLTree<int>(fptr);	
@@ -62,7 +48,7 @@ void verArbol( Node<T>* Node, int n){
 			avl -> showPreOrder();	
 			cout << "Posorden: ";	
 			avl -> showPostOrder();
-			cout << endl;
+			cout  << endl;
 			//cout << endl << "Por niveles" << endl;	
 			//avl -> showPerLevel();
             break;
