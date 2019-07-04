@@ -6,3 +6,13 @@ LeftChar=1
 [Editors]
 Order=
 Focused=4
+[Editor_3]
+CursorCol=11
+CursorRow=13
+TopLine=1
+LeftChar=1
+[Editor_2]
+CursorCol=62
+CursorRow=54
+TopLine=40
+LeftChar=1
