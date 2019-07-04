@@ -7,7 +7,7 @@
 #define ARBOLAVL_H_
 
 #include "Nodo.h"
-#include "ArborBinarioOrdenado.h"
+#include "ArbolBinarioOrdenado.h"
 
 template<class T>
 class AVLTree: public BinarySearchTree<T> {

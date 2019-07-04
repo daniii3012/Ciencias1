@@ -7,7 +7,7 @@
 #define ARBOLAVL_CPP
 #include <iostream>
 #include "ArbolAVL.h"
-#include "ArborBinarioOrdenado.h"
+#include "ArbolBinarioOrdenado.h"
 
 using namespace std;
 

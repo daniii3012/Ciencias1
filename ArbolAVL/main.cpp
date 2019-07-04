@@ -7,23 +7,23 @@
 #include <stdlib.h>	
 #include "Nodo.cpp"	
 #include "ArbolAVL.h"	
-#include "ArborBinarioOrdenado.h"	
+#include "ArbolBinarioOrdenado.h"	
 
- using namespace std;	
+using namespace std;	
 int comparar(int a, int b);	
 
- template <class T>	
+template <class T>	
 void verArbol( Node<T>* Node, int n){	
-     if(Node==NULL)	
-          return;	
-     verArbol(Node->getRight(), n+1);	
+	if(Node==NULL)	
+		return;	
+	verArbol(Node->getRight(), n+1);	
 
-      for(int i=0; i<n; i++)	
-         cout<<"\t\t";	
+	for(int i=0; i<n; i++)	
+		cout<<"\t\t";	
 
-      cout<< Node->getData() <<endl;	
+	cout<< Node->getData() <<endl;	
 
-      verArbol(Node->getLeft(), n+1);	
+	verArbol(Node->getLeft(), n+1);	
 }	
 
  int main(int argc, char **argv) {	
@@ -31,37 +31,47 @@ void verArbol( Node<T>* Node, int n){
 	fptr = comparar;	
 	AVLTree<int>* avl = new AVLTree<int>(fptr);	
 	
-	avl->add(1);	
-	avl->add(2);	
-	avl->add(3);	
-	avl->add(4);	
-	avl->add(5);	
-	avl->add(6);	
-	avl->add(7);	
-
- 	cout << "En orden" << endl;	
-	avl->showInOrder();	
-	cout << endl << "Preorden" << endl;	
-	avl->showPreOrder();	
-	cout << endl << "Posorden" << endl;	
-	avl->showPostOrder();	
-	cout << endl << "Por niveles" << endl;	
-	avl->showPerLevel();	
-
-// 	cout << endl<<"AVL TREE - Preorden" << endl;	
-//	cout << endl<<" Completa       : ";	
-//	avl->showPreOrder();	
-//	cout << endl<<" Borrar Augusto : ";	
-//	avl->remove("Augusto");	
-//	avl->showPreOrder();	
-//	cout << endl<<" Borrar Felipe  : ";	
-//	avl->remove("Felipe");	
-//	avl->showPreOrder();	
-//	cout << endl<<" Borrar Juan    : ";	
-//	avl->remove("Juan");	
-//	avl->showPreOrder();	
-
- 	system("pause");	
+	while (1){
+        cout << "1) Insertar" << endl;
+        cout << "2) Eliminar" << endl;
+        cout << "3) Imprimir" << endl;
+        cout << "4) Salir" << endl;
+        
+        int opc, num;
+        cout << "Ingrese una opcion: ";
+        cin >> opc;
+        
+        switch(opc){
+        case 1:
+        	cout << "Ingrese un numero: ";
+        	cin >> num;
+        	avl -> add(num);
+        	system("cls");
+            break;
+        case 2:
+        	cout << "Ingrese un numero a eliminar: ";
+        	cin >> num;
+        	avl -> remove(num);
+        	system("cls");
+            break;
+        case 3:
+        	system("cls");
+        	cout << "Inorden: ";	
+			avl -> showInOrder();	
+			cout << "Preorden: ";	
+			avl -> showPreOrder();	
+			cout << "Posorden: ";	
+			avl -> showPostOrder();
+			cout << endl;
+			//cout << endl << "Por niveles" << endl;	
+			//avl -> showPerLevel();
+            break;
+        case 4:
+            exit(1);
+        default:
+            cout << "Ingrese una opcion correcta" << endl;
+        }
+    }
 	return 0;	
 }	
 
