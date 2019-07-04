@@ -128,9 +128,9 @@ void AVLTree<T>::remove(T data) {
 template<class T>
 Node<T>* AVLTree<T>::remove(T data, Node<T>* node) {
 	Node<T>* aux;
-	if (node == null)
+	if (node == null){
 		return null;
-	else if (this->ptr(node->getData(), data) > 0) {
+	} else if (this->ptr(node->getData(), data) >= 0) {
 		node->setLeft(this->remove(data, node->getLeft()));
 	} else if (this->ptr(node->getData(), data) < 0) {
 		node->setRight(this->remove(data, node->getRight()));
