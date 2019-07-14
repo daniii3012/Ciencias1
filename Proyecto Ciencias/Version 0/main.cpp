@@ -30,7 +30,7 @@ struct Paseador{
 	
 	int dia_nacimiento;
 	int mes_nacimiento;
-	int año_nacimiento;
+	int ano_nacimiento;
 	
 	string ciudad_nacimiento;
 	string pais_nacimiento;
@@ -44,7 +44,7 @@ struct Perro{
 	
 	int dia_nacimiento;
 	int mes_nacimiento;
-	int año_nacimiento;
+	int ano_nacimiento;
 	
 	string raza;
 	string tamano;
