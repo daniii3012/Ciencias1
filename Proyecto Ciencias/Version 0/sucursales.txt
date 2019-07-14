@@ -1,2 +1,3 @@
 Sucursal1 Gerente1 Localidad1 Cll1 Cr1 Cll10 Cr10
 Sucursal2 Gerente2 Localidad2 Cll11 Cr11 Cll20 Cr20
+Sucursal3 Gerente3 Localidad3 Cll21 Cr21 Cll30 Cr30

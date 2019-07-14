@@ -1,7 +1,6 @@
 /*
-	Daniel Alejandro Montiel - 20171020049
 	Angie Gabriela Antolinez - 20151020061
-	
+	Daniel Alejandro Montiel - 20171020049
 */
 #ifndef LISTA_H
 #define LISTA_H
