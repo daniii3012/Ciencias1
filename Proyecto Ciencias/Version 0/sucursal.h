@@ -15,8 +15,8 @@ struct Sucursal{
 	string calle_fin;
 	string carrera_fin;
 	
-	//int num_paseadores;
-	//int num_clientes;
+	int num_paseadores;
+	int num_clientes;
 };
 
 #endif
