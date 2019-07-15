@@ -10,21 +10,23 @@ struct Paseador{
 	string nombre;
 	string apellido;
 	string tipo_id;
-	string id;
+	long long id;
 	string sexo;
-	string tel_fijo;
-	string tel_celular;
+	int tel_fijo;
+	long long tel_celular;
 	string e_mail;
 	
-	string dia_nacimiento;
-	string mes_nacimiento;
-	string ano_nacimiento;
+	int dia_nacimiento;
+	int mes_nacimiento;
+	int ano_nacimiento;
 	
 	string ciudad_nacimiento;
 	string pais_nacimiento;
 	string direccion;
 	string barrio;
-	//string horario;
+	
+	int hora_entrada;
+	int hora_salida;
 };
 
 #endif

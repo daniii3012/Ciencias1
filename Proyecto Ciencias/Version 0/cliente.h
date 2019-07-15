@@ -8,7 +8,7 @@
 struct Perro{
 	string nombre;
 	
-	int dia_nacimiento;
+	//int dia_nacimiento;
 	int mes_nacimiento;
 	int ano_nacimiento;
 	
@@ -21,11 +21,12 @@ template <class T>
 struct Cliente{
 	string nombre;
 	string apellido;
-	int id;
+	long long id;
 	string sexo;
 	string localidad_residencia;
+	int num_perros;
 	
-	lista<T> perros;
+	lista<T> lista_perros;
 };
 
 #endif
