@@ -188,7 +188,7 @@ int main(int argc, char** argv) {
     	file_in_clientes >> id;
     	cliente.id = id;
     	file_in_clientes >> sexo;
-    	cliente.sexo;
+    	cliente.sexo = sexo;
     	file_in_clientes >> localidad;
     	cliente.localidad_residencia = localidad;
     	file_in_clientes >> num_perros;
@@ -224,6 +224,8 @@ int main(int argc, char** argv) {
 		cout << lista_clientes.buscar(i).sexo << " ";
 		cout << lista_clientes.buscar(i).localidad_residencia << " ";
 		
+		cout << endl;
+		
 		for(int j = 1; j <= tam_perros; j++){
 			cout << lista_clientes.buscar(i).lista_perros.buscar(j).nombre << " ";
 			cout << lista_clientes.buscar(i).lista_perros.buscar(j).mes_nacimiento << " ";
@@ -231,8 +233,8 @@ int main(int argc, char** argv) {
 			cout << lista_clientes.buscar(i).lista_perros.buscar(j).raza << " ";
 			cout << lista_clientes.buscar(i).lista_perros.buscar(j).tamano << " ";
 			cout << lista_clientes.buscar(i).lista_perros.buscar(j).concentrado << " ";
+			cout << endl;
 		}
-		cout << endl;
 	}
 	
 	return 0;
