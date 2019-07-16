@@ -189,7 +189,8 @@ int main(int argc, char** argv) {
 		cout << "2) Consulta 1" << endl;
 		cout << "3) Consulta 2" << endl;
 		cout << "4) Consulta 3" << endl;
-		cout << "5) Salir" << endl;
+		cout << "5) Consulta 4" << endl;
+		cout << "6) Salir" << endl;
 		cin >> opcion1;
 		
 		switch(opcion1){
@@ -574,6 +575,25 @@ int main(int argc, char** argv) {
 						}
 					}	
 				}		
+				cout << endl;
+				break;
+			}
+			case 5:{
+				string localidad_buscar, raza_buscar;
+				cout << "Ingrese la localidad: ";
+				cin>> localidad_buscar;
+				cout << "Ingrese la localidad: ";
+				cin>> raza_buscar;
+				for(int i = 1; i <= tam_clientes; i++){
+					if(lista_clientes.buscar(i).localidad_residencia==localidad_buscar){
+					for(int j = 1; j <= tam_perros; j++) {
+						if(lista_clientes.buscar(i).lista_perros.buscar(j).raza==raza_buscar)
+						cout<<"Los clientes son: ";
+						cout<<lista_clientes.buscar(i).nombre<< " ";
+						cout<<lista_clientes.buscar(i).apellido<< " ";
+						}
+					}
+				}
 				cout << endl;
 				break;
 			}
