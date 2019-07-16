@@ -1,3 +1,3 @@
-Sucursal1 MariaRivera Teusaquillo 1 1 10 10 2 1
+Sucursal1 MariaRivera Teusaquillo 1 1 10 10 2 2
+Sucursal3 AndreaLozada Candelaria 21 21 30 30 1 1
 Sucursal2 DarioZamudio Tunjuelito 11 11 20 20 1 0
-Sucursal3 AndreaLozada Candelaria 21 21 30 30 1 0

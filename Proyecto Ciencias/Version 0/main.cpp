@@ -25,6 +25,95 @@
 
 using namespace std;
 
+void write_file_sucursales(lista<Sucursal> lista_sucursales){
+	ofstream file_out_sucursales("sucursales.txt", ios::out|ios::trunc);
+ 	if (!file_out_sucursales.good()){
+	 	cerr << "No se pudo abrir el archivo" << endl;
+    	exit(1);
+	}
+	int tam_sucursales = lista_sucursales.get_tam();
+	for(int i = 1; i <= tam_sucursales; i++){
+		file_out_sucursales << lista_sucursales.buscar(i).nombre_sucursal << " ";
+		file_out_sucursales << lista_sucursales.buscar(i).nombre_gerente << " ";
+		file_out_sucursales << lista_sucursales.buscar(i).localidad << " ";
+		file_out_sucursales << lista_sucursales.buscar(i).calle_inicio << " ";
+		file_out_sucursales << lista_sucursales.buscar(i).carrera_inicio << " ";
+		file_out_sucursales << lista_sucursales.buscar(i).calle_fin << " ";
+		file_out_sucursales << lista_sucursales.buscar(i).carrera_fin << " ";
+		file_out_sucursales << lista_sucursales.buscar(i).num_paseadores << " ";
+		file_out_sucursales << lista_sucursales.buscar(i).num_clientes;
+		if(tam_sucursales != i)
+			file_out_sucursales << "\n";
+	}
+	file_out_sucursales.close();
+}
+
+void write_file_paseadores(lista<Paseador> lista_paseadores){
+	ofstream file_out_paseadores("paseadores.txt", ios::out|ios::trunc);
+	if (!file_out_paseadores.good()){
+	 	cerr << "No se pudo abrir el archivo" << endl;
+    	exit(1);
+	}
+	int tam_paseadores = lista_paseadores.get_tam();
+	for(int i = 1; i <= tam_paseadores; i++){
+		file_out_paseadores << lista_paseadores.buscar(i).sucursal << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).nombre << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).apellido << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).tipo_id << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).id << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).sexo << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).tel_fijo << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).tel_celular << "\n";
+		file_out_paseadores << lista_paseadores.buscar(i).e_mail << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).dia_nacimiento << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).mes_nacimiento << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).ano_nacimiento << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).ciudad_nacimiento << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).pais_nacimiento << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).direccion << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).localidad << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).hora_entrada << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).hora_salida;
+		if(tam_paseadores != i)
+			file_out_paseadores << "\n";
+	}
+	file_out_paseadores.close();
+}
+
+void write_file_clientes(lista< Cliente<Perro> > lista_clientes){
+	int k=0;
+	ofstream file_out_clientes("clientes.txt", ios::out|ios::trunc);
+	if (!file_out_clientes.good()){
+	 	cerr << "No se pudo abrir el archivo" << endl;
+    	exit(1);
+	}
+	int tam_perros;
+	int tam_clientes = lista_clientes.get_tam();
+	for(int i = 1; i <= tam_clientes; i++){
+		tam_perros = lista_clientes.buscar(i).num_perros;
+		file_out_clientes << lista_clientes.buscar(i).nombre << " ";
+		file_out_clientes << lista_clientes.buscar(i).apellido << " ";
+		file_out_clientes << lista_clientes.buscar(i).id << " ";
+		file_out_clientes << lista_clientes.buscar(i).sexo << " ";
+		file_out_clientes << lista_clientes.buscar(i).localidad_residencia << " ";
+		file_out_clientes << lista_clientes.buscar(i).num_perros << " ";
+		for(int j = 1; j <= tam_perros; j++){
+			file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).id << " ";
+			file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).nombre << " ";
+			file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).mes_nacimiento << " ";
+			file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).ano_nacimiento << " ";
+			file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).raza << " ";
+			file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).tamano << " ";
+			file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).concentrado;
+			if(tam_perros != j)
+				file_out_clientes << " ";
+		}
+		if(tam_clientes != i)
+			file_out_clientes << endl;
+	}
+	file_out_clientes.close();
+}
+
 int main(int argc, char** argv) {
 	
 	//
@@ -269,26 +358,8 @@ int main(int argc, char** argv) {
 										sucursal.num_clientes = 0;
 										lista_sucursales.insertar_inicio(sucursal);
 										
-										ofstream file_out_sucursales("sucursales.txt", ios::out|ios::trunc);
-									 	if (!file_out_sucursales.good()){
-										 	cerr << "No se pudo abrir el archivo" << endl;
-									    	exit(1);
-										}
-										tam_sucursales = lista_sucursales.get_tam();
-										for(int i = 1; i <= tam_sucursales; i++){
-											file_out_sucursales << lista_sucursales.buscar(i).nombre_sucursal << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).nombre_gerente << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).localidad << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).calle_inicio << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).carrera_inicio << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).calle_fin << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).carrera_fin << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).num_paseadores << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).num_clientes;
-											if(tam_sucursales != i)
-												file_out_sucursales << "\n";
-										}
-										file_out_sucursales.close();
+										write_file_sucursales(lista_sucursales);
+										
 										break;
 									}
 									case 3:{
@@ -338,28 +409,10 @@ int main(int argc, char** argv) {
 										if(modificar){
 											lista_sucursales.borrar_nodo(pos_save);
 											lista_sucursales.insertar_inicio(sucursal);
-										}										
+										}
 										
-										ofstream file_out_sucursales("sucursales.txt", ios::out|ios::trunc);
-									 	if (!file_out_sucursales.good()){
-										 	cerr << "No se pudo abrir el archivo" << endl;
-									    	exit(1);
-										}
-										tam_sucursales = lista_sucursales.get_tam();
-										for(int i = 1; i <= tam_sucursales; i++){
-											file_out_sucursales << lista_sucursales.buscar(i).nombre_sucursal << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).nombre_gerente << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).localidad << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).calle_inicio << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).carrera_inicio << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).calle_fin << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).carrera_fin << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).num_paseadores << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).num_clientes;
-											if(tam_sucursales != i)
-												file_out_sucursales << "\n";
-										}
-										file_out_sucursales.close();
+										write_file_sucursales(lista_sucursales);
+										
 										break;
 									}
 									case 4:{
@@ -382,26 +435,8 @@ int main(int argc, char** argv) {
 											lista_sucursales.borrar_nodo(pos_save);
 										}
 										
-										ofstream file_out_sucursales("sucursales.txt", ios::out|ios::trunc);
-									 	if (!file_out_sucursales.good()){
-										 	cerr << "No se pudo abrir el archivo" << endl;
-									    	exit(1);
-										}
-										tam_sucursales = lista_sucursales.get_tam();
-										for(int i = 1; i <= tam_sucursales; i++){
-											file_out_sucursales << lista_sucursales.buscar(i).nombre_sucursal << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).nombre_gerente << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).localidad << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).calle_inicio << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).carrera_inicio << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).calle_fin << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).carrera_fin << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).num_paseadores << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).num_clientes;
-											if(tam_sucursales != i)
-												file_out_sucursales << "\n";
-										}
-										file_out_sucursales.close();
+										write_file_sucursales(lista_sucursales);
+										
 										break;
 									}
 									default:{
@@ -449,41 +484,137 @@ int main(int argc, char** argv) {
 										break;
 									}
 									case 2:{
+										cout << "Agregar Paseador" << endl;
+										cout << "Sucursal: ";
+										cin >> nom_sucursal;
+										modificar = false;
+										tam_sucursales = lista_sucursales.get_tam();
+										for(int i = 1; i <= tam_sucursales; i++){
+											if(lista_sucursales.buscar(i).nombre_sucursal == nom_sucursal){
+												paseador.sucursal = nom_sucursal;
+												cout << "Nombre: ";
+												cin >> nombre;
+												paseador.nombre = nombre;
+												cout << "Apellido: ";
+												cin >> apellido;
+												paseador.apellido = apellido;
+												cout << "Tipo ID: ";
+												cin >> tipo_id;
+												paseador.tipo_id = tipo_id;
+												cout << "ID: ";
+												cin >> id;
+												paseador.id = id;
+												cout << "Sexo: ";
+												cin >> sexo;
+												paseador.sexo = sexo;
+												cout << "Telefono fijo: ";
+												cin >> tel_fijo;
+												paseador.tel_fijo = tel_fijo;
+												cout << "Telefono celular: ";
+												cin >> tel_celular;
+												paseador.tel_celular = tel_celular;
+												cout << "E-Mail: ";
+												cin >> e_mail;
+												paseador.e_mail = e_mail;
+												do{
+													cout << "Año de nacimiento: ";
+													cin >> ano_nacimiento;
+												}while(ano_nacimiento >= 2000);
+												paseador.ano_nacimiento = ano_nacimiento;
+												do{
+													cout << "Mes de nacimiento: ";
+													cin >> mes_nacimiento;
+												}while(mes_nacimiento <= 0 || mes_nacimiento >=13);
+												paseador.mes_nacimiento = mes_nacimiento;
+												if(mes_nacimiento == 1 || mes_nacimiento == 3 || mes_nacimiento == 5 || mes_nacimiento == 7 || mes_nacimiento == 8 || mes_nacimiento == 10 || mes_nacimiento == 12){
+													do{
+														cout << "Dia de nacimiento: ";
+														cin >> dia_nacimiento;
+													}while(dia_nacimiento <= 0 || dia_nacimiento >= 32);
+													paseador.dia_nacimiento = dia_nacimiento;
+												}else if(mes_nacimiento == 4 || mes_nacimiento == 6 || mes_nacimiento == 9 || mes_nacimiento == 11){
+													do{
+														cout << "Dia de nacimiento: ";
+														cin >> dia_nacimiento;
+													}while(dia_nacimiento <= 0 || dia_nacimiento >= 31);
+													paseador.dia_nacimiento = dia_nacimiento;
+												}else if(mes_nacimiento == 2){
+													// No tiene en cuenta años biciestos
+													do{
+														cout << "Dia de nacimiento: ";
+														cin >> dia_nacimiento;
+													}while(dia_nacimiento <= 0 || dia_nacimiento >= 29);
+													paseador.dia_nacimiento = dia_nacimiento;
+												}
+												cout << "Ciudad de nacimiento: ";
+												cin >> ciudad_nacimiento;
+												paseador.ciudad_nacimiento = ciudad_nacimiento;
+												cout << "Pais de nacimiento: ";
+												cin >> pais_nacimiento;
+												paseador.pais_nacimiento = pais_nacimiento;
+												cout << "Direccion de residencia: ";
+												cin >> dir_paseador;
+												paseador.direccion = dir_paseador;
+												cout << "Localidad de residencia: ";
+												cin >> localidad_paseador;
+												paseador.localidad = localidad_paseador;
+												cout << "Hora de entrada (24H): ";
+												cin >> h_entrada;
+												paseador.hora_entrada = h_entrada;
+												cout << "Hora de salida (24H): ";
+												cin >> h_salida;
+												paseador.hora_salida = h_salida;
+												
+												sucursal = lista_sucursales.buscar(i);
+												sucursal.num_paseadores++;
+												pos_save = i;
+												modificar = true;
+												lista_paseadores.insertar_inicio(paseador);
+											}
+										}
+										if(modificar){
+											lista_sucursales.borrar_nodo(pos_save);
+											lista_sucursales.insertar_inicio(sucursal);
+										}
+										
+										write_file_paseadores(lista_paseadores);
+										write_file_sucursales(lista_sucursales);
+										
 										break;
 									}
 									case 3:{
-										ofstream file_out_paseadores("paseadores.txt", ios::out|ios::trunc);
-										if (!file_out_paseadores.good()){
-										 	cerr << "No se pudo abrir el archivo" << endl;
-									    	exit(1);
-										}
-										tam_paseadores = lista_paseadores.get_tam();
-										for(int i = 1; i <= tam_paseadores; i++){
-											file_out_paseadores << lista_paseadores.buscar(i).sucursal << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).nombre << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).apellido << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).tipo_id << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).id << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).sexo << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).tel_fijo << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).tel_celular << "\n";
-											file_out_paseadores << lista_paseadores.buscar(i).e_mail << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).dia_nacimiento << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).mes_nacimiento << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).ano_nacimiento << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).ciudad_nacimiento << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).pais_nacimiento << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).direccion << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).localidad << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).hora_entrada << " ";
-											file_out_paseadores << lista_paseadores.buscar(i).hora_salida;
-											if(tam_paseadores != i)
-												file_out_paseadores << "\n";
-										}
-										file_out_paseadores.close();
+										write_file_paseadores(lista_paseadores);
 										break;
 									}
 									case 4:{
+										int pos1=0;
+										cout << "Eliminar Paseador" << endl;
+										cout << "ID: ";
+										cin >> id;
+										modificar = false;
+										tam_paseadores = lista_paseadores.get_tam();
+										for(int i = 1; i <= tam_paseadores; i++){
+											if(lista_paseadores.buscar(i).id == id){
+												pos_save = i;
+												modificar = true;
+												tam_sucursales = lista_sucursales.get_tam();
+												for(int j = 1; j <= tam_sucursales; j++){
+													if(lista_paseadores.buscar(i).sucursal == lista_sucursales.buscar(j).nombre_sucursal){
+														sucursal = lista_sucursales.buscar(j);
+														sucursal.num_paseadores--;
+														pos1=j;
+													}
+												}
+											}
+										}
+										if(modificar){
+											lista_paseadores.borrar_nodo(pos_save);
+											lista_sucursales.borrar_nodo(pos1);
+											lista_sucursales.insertar_inicio(sucursal);
+										}
+										
+										write_file_paseadores(lista_paseadores);
+										write_file_sucursales(lista_sucursales);
 										break;
 									}
 									default:{
@@ -530,42 +661,15 @@ int main(int argc, char** argv) {
 										break;
 									}
 									case 2:{
+										write_file_clientes(lista_clientes);
 										break;
 									}
 									case 3:{
-										int k=0;
-										ofstream file_out_clientes("clientes.txt", ios::out|ios::trunc);
-										if (!file_out_clientes.good()){
-										 	cerr << "No se pudo abrir el archivo" << endl;
-									    	exit(1);
-										}
-										tam_clientes = lista_clientes.get_tam();
-										for(int i = 1; i <= tam_clientes; i++){
-											tam_perros = lista_clientes.buscar(i).num_perros;
-											file_out_clientes << lista_clientes.buscar(i).nombre << " ";
-											file_out_clientes << lista_clientes.buscar(i).apellido << " ";
-											file_out_clientes << lista_clientes.buscar(i).id << " ";
-											file_out_clientes << lista_clientes.buscar(i).sexo << " ";
-											file_out_clientes << lista_clientes.buscar(i).localidad_residencia << " ";
-											file_out_clientes << lista_clientes.buscar(i).num_perros << " ";
-											for(int j = 1; j <= tam_perros; j++){
-												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).id << " ";
-												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).nombre << " ";
-												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).mes_nacimiento << " ";
-												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).ano_nacimiento << " ";
-												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).raza << " ";
-												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).tamano << " ";
-												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).concentrado;
-												if(tam_perros != j)
-													file_out_clientes << " ";
-											}
-											if(tam_clientes != i)
-												file_out_clientes << endl;
-										}
-										file_out_clientes.close();
+										write_file_clientes(lista_clientes);
 										break;
 									}
 									case 4:{
+										write_file_clientes(lista_clientes);
 										break;
 									}
 									default:{
