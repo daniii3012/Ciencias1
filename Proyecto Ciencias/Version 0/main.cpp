@@ -96,6 +96,7 @@ int main(int argc, char** argv) {
 		cout << lista_sucursales.buscar(i).num_clientes << " ";
 		cout << endl;
 	}
+	cout << endl;
 	
 		
 	ifstream file_in_paseadores("paseadores.txt", ios::in);
@@ -169,6 +170,7 @@ int main(int argc, char** argv) {
 		cout << lista_paseadores.buscar(i).barrio << " ";
 		cout << endl;
 	}
+	cout << endl;
 	
 	
 	ifstream file_in_clientes("clientes.txt", ios::in);
@@ -227,7 +229,7 @@ int main(int argc, char** argv) {
 		cout << endl;
 		
 		for(int j = 1; j <= tam_perros; j++){
-			cout << lista_clientes.buscar(i).lista_perros.buscar(j).nombre << " ";
+			cout << "	" << lista_clientes.buscar(i).lista_perros.buscar(j).nombre << " ";
 			cout << lista_clientes.buscar(i).lista_perros.buscar(j).mes_nacimiento << " ";
 			cout << lista_clientes.buscar(i).lista_perros.buscar(j).ano_nacimiento << " ";
 			cout << lista_clientes.buscar(i).lista_perros.buscar(j).raza << " ";
@@ -236,6 +238,7 @@ int main(int argc, char** argv) {
 			cout << endl;
 		}
 	}
+	cout << endl;
 	
 	return 0;
 }
