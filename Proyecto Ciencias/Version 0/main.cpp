@@ -1,3 +1,4 @@
+
 //  /$$$$$$$                                                     /$$                      /$$$$$$  /$$                               /$$                    
 // | $$__  $$                                                   | $$                     /$$__  $$|__/                              |__/                    
 // | $$  \ $$ /$$$$$$   /$$$$$$  /$$   /$$  /$$$$$$   /$$$$$$$ /$$$$$$    /$$$$$$       | $$  \__/ /$$  /$$$$$$  /$$$$$$$   /$$$$$$$ /$$  /$$$$$$   /$$$$$$$
@@ -152,8 +153,6 @@ int main(int argc, char** argv) {
     	cliente.num_perros = num_perros;
 
     	for(int i = 0; i < num_perros; i++){
-    		file_in_clientes >> id;
-    		perro.id = id;
     		file_in_clientes >> nombre;
     		perro.nombre = nombre;
     		file_in_clientes >> mes_nacimiento;
@@ -172,7 +171,7 @@ int main(int argc, char** argv) {
     	
     	lista_clientes.insertar_inicio(cliente);
    	}
-	file_in_clientes.close();
+	file_in_sucursales.close();
 	
 	//
 	//			MENU
@@ -187,7 +186,8 @@ int main(int argc, char** argv) {
 		cout << "1) Administrar" << endl;
 		cout << "2) Consulta 1" << endl;
 		cout << "3) Consulta 2" << endl;
-		cout << "4) Salir" << endl;
+		cout << "4) Consulta 3" << endl;
+		cout << "5) Salir" << endl;
 		cin >> opcion1;
 		
 		switch(opcion1){
@@ -230,51 +230,6 @@ int main(int argc, char** argv) {
 										break;
 									}
 									case 2:{
-										cout << "Nombre Sucursal: ";
-										cin >> nom_sucursal;
-										sucursal.nombre_sucursal = nom_sucursal;
-										cout << "Nombre Gerente: ";
-										cin >> nom_gerente;
-										sucursal.nombre_gerente = nom_gerente;
-										cout << "Localidad: ";
-										cin >> localidad;
-										sucursal.localidad = localidad;
-										cout << "Calle de inicio: ";
-										cin >> cll_inicio;
-										sucursal.calle_inicio = cll_inicio;
-										cout << "Carrera de inicio: ";
-										cin >> cr_inicio;
-										sucursal.carrera_inicio = cr_inicio;
-										cout << "Calle de fin: ";
-										cin >> cll_fin;
-										sucursal.calle_fin = cll_fin;
-										cout << "Carrera de fin: ";
-										cin >> cr_fin;
-										sucursal.carrera_fin = cr_fin;
-										sucursal.num_paseadores = 0;
-										sucursal.num_clientes = 0;
-										lista_sucursales.insertar_inicio(sucursal);
-										
-										ofstream file_out_sucursales("sucursales.txt", ios::out|ios::trunc);
-									 	if (!file_out_sucursales.good()){
-										 	cerr << "No se pudo abrir el archivo" << endl;
-									    	exit(1);
-										}
-										tam_sucursales = lista_sucursales.get_tam();
-										for(int i = 1; i <= tam_sucursales; i++){
-											file_out_sucursales << lista_sucursales.buscar(i).nombre_sucursal << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).nombre_gerente << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).localidad << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).calle_inicio << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).carrera_inicio << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).calle_fin << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).carrera_fin << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).num_paseadores << " ";
-											file_out_sucursales << lista_sucursales.buscar(i).num_clientes;
-											if(tam_sucursales != i)
-												file_out_sucursales << "\n";
-										}
-										file_out_sucursales.close();
 										break;
 									}
 									case 3:{
@@ -325,22 +280,20 @@ int main(int argc, char** argv) {
 										for(int i = 1; i <= tam_paseadores; i++){
 											cout << lista_paseadores.buscar(i).sucursal << " ";
 											cout << lista_paseadores.buscar(i).nombre << " ";
-											//cout << lista_paseadores.buscar(i).apellido << " ";
+											cout << lista_paseadores.buscar(i).apellido << " ";
 											cout << lista_paseadores.buscar(i).tipo_id << " ";
 											cout << lista_paseadores.buscar(i).id << " ";
 											cout << lista_paseadores.buscar(i).sexo << " ";
-											//cout << lista_paseadores.buscar(i).tel_fijo << " ";
-											//cout << lista_paseadores.buscar(i).tel_celular << " ";
-											//cout << lista_paseadores.buscar(i).e_mail << " ";
-											//cout << lista_paseadores.buscar(i).dia_nacimiento << " ";
+											cout << lista_paseadores.buscar(i).tel_fijo << " ";
+											cout << lista_paseadores.buscar(i).tel_celular << " ";
+											cout << lista_paseadores.buscar(i).e_mail << " ";
+											cout << lista_paseadores.buscar(i).dia_nacimiento << " ";
 											cout << lista_paseadores.buscar(i).mes_nacimiento << " ";
 											cout << lista_paseadores.buscar(i).ano_nacimiento << " ";
-											//cout << lista_paseadores.buscar(i).ciudad_nacimiento << " ";
-											//cout << lista_paseadores.buscar(i).pais_nacimiento << " ";
-											//cout << lista_paseadores.buscar(i).direccion << " ";
+											cout << lista_paseadores.buscar(i).ciudad_nacimiento << " ";
+											cout << lista_paseadores.buscar(i).pais_nacimiento << " ";
+											cout << lista_paseadores.buscar(i).direccion << " ";
 											cout << lista_paseadores.buscar(i).localidad << " ";
-											cout << lista_paseadores.buscar(i).hora_entrada << " ";
-											cout << lista_paseadores.buscar(i).hora_salida << " ";
 											cout << endl;
 										}
 										cout << endl;
@@ -414,7 +367,6 @@ int main(int argc, char** argv) {
 											cout << endl;
 											
 											for(int j = 1; j <= tam_perros; j++){
-												cout << lista_clientes.buscar(i).lista_perros.buscar(j).id << " ";
 												cout << lista_clientes.buscar(i).lista_perros.buscar(j).nombre << " ";
 												cout << lista_clientes.buscar(i).lista_perros.buscar(j).mes_nacimiento << " ";
 												cout << lista_clientes.buscar(i).lista_perros.buscar(j).ano_nacimiento << " ";
@@ -447,7 +399,6 @@ int main(int argc, char** argv) {
 											file_out_clientes << lista_clientes.buscar(i).num_perros;
 											file_out_clientes << "\n";		
 											for(int j = 1; j <= tam_perros; j++){
-												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).id << " ";
 												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).nombre << " ";
 												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).mes_nacimiento << " ";
 												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).ano_nacimiento << " ";
@@ -481,9 +432,9 @@ int main(int argc, char** argv) {
 			}
 			case 2:{
 				int calle_buscar, cra_buscar;
-				cout << "Ingrese el n?mero de la calle: "	;
+				cout << "Ingrese el número de la calle: "	;
 				cin>> calle_buscar;
-				cout << "Ingrese el n?mero de la carrera: ";
+				cout << "Ingrese el número de la carrera: ";
 				cin>> cra_buscar;
 				
 				tam_sucursales = lista_sucursales.get_tam();
@@ -533,6 +484,43 @@ int main(int argc, char** argv) {
 				cout << endl;
 				break;
 			}
+			case 4:{
+				int horainicio_buscar, horafin_buscar;
+				string localidad_buscar, nombre_buscar, apellido_buscar;
+				cout << "Ingrese nombre de cliente: "	;
+					cin>> nombre_buscar;
+				cout << "Ingrese apellido de cliente : "	;
+					cin>> apellido_buscar;
+				cout << "Ingrese la hora de inicio : "	;
+					cin>> horainicio_buscar;
+				cout << "Ingrese la hora de fin : "	;
+					cin>> horafin_buscar;
+				for(int i = 1; i <= tam_clientes; i++){
+					if(lista_clientes.buscar(i).nombre == nombre_buscar ){
+//						cout <<"Nombre está";
+						if(lista_clientes.buscar(i).apellido == apellido_buscar){
+//							cout<<"Apellido está";
+							localidad_buscar = lista_clientes.buscar(i).localidad_residencia;
+							for(int j = 1; j <= tam_paseadores; j++){
+								if(lista_paseadores.buscar(j).localidad== localidad_buscar){
+//									cout<<"Localidad esta";
+									if(lista_paseadores.buscar(j).hora_entrada <= horainicio_buscar){
+//										cout<<"Horario del paseador es menor o igual a la indicada";
+										if(lista_paseadores.buscar(j).hora_salida >= horafin_buscar){
+//											cout<<"Horario final del paseador es mayor o igual a la indicada";
+											cout<<"El paseador encargado es: ";
+											cout << lista_paseadores.buscar(j).nombre << " ";
+											cout << lista_paseadores.buscar(j).apellido << " ";
+										}
+									}	
+								}
+							}
+						}
+					}	
+				}		
+				cout << endl;
+				break;
+			}
 			default:{
 				menu1 = true;
 			}
@@ -543,4 +531,3 @@ int main(int argc, char** argv) {
 	
 	return 0;
 }
-
