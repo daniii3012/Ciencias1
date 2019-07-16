@@ -230,6 +230,51 @@ int main(int argc, char** argv) {
 										break;
 									}
 									case 2:{
+										cout << "Nombre Sucursal: ";
+										cin >> nom_sucursal;
+										sucursal.nombre_sucursal = nom_sucursal;
+										cout << "Nombre Gerente: ";
+										cin >> nom_gerente;
+										sucursal.nombre_gerente = nom_gerente;
+										cout << "Localidad: ";
+										cin >> localidad;
+										sucursal.localidad = localidad;
+										cout << "Calle de inicio: ";
+										cin >> cll_inicio;
+										sucursal.calle_inicio = cll_inicio;
+										cout << "Carrera de inicio: ";
+										cin >> cr_inicio;
+										sucursal.carrera_inicio = cr_inicio;
+										cout << "Calle de fin: ";
+										cin >> cll_fin;
+										sucursal.calle_fin = cll_fin;
+										cout << "Carrera de fin: ";
+										cin >> cr_fin;
+										sucursal.carrera_fin = cr_fin;
+										sucursal.num_paseadores = 0;
+										sucursal.num_clientes = 0;
+										lista_sucursales.insertar_inicio(sucursal);
+										
+										ofstream file_out_sucursales("sucursales.txt", ios::out|ios::trunc);
+									 	if (!file_out_sucursales.good()){
+										 	cerr << "No se pudo abrir el archivo" << endl;
+									    	exit(1);
+										}
+										tam_sucursales = lista_sucursales.get_tam();
+										for(int i = 1; i <= tam_sucursales; i++){
+											file_out_sucursales << lista_sucursales.buscar(i).nombre_sucursal << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).nombre_gerente << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).localidad << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).calle_inicio << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).carrera_inicio << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).calle_fin << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).carrera_fin << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).num_paseadores << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).num_clientes;
+											if(tam_sucursales != i)
+												file_out_sucursales << "\n";
+										}
+										file_out_sucursales.close();
 										break;
 									}
 									case 3:{
