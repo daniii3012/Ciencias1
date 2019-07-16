@@ -125,6 +125,7 @@ int main(int argc, char** argv) {
     	paseador.hora_entrada = h_entrada;
     	file_in_paseadores >> h_salida;
     	paseador.hora_salida = h_salida;
+    	paseador.num_perros = 0;
     	
     	lista_paseadores.insertar_inicio(paseador);
    	}
@@ -539,13 +540,16 @@ int main(int argc, char** argv) {
 				int horainicio_buscar, horafin_buscar;
 				string localidad_buscar, nombre_buscar, apellido_buscar;
 				cout << "Ingrese nombre de cliente: "	;
-					cin>> nombre_buscar;
+				cin>> nombre_buscar;
 				cout << "Ingrese apellido de cliente : "	;
-					cin>> apellido_buscar;
+				cin>> apellido_buscar;
 				cout << "Ingrese la hora de inicio : "	;
-					cin>> horainicio_buscar;
+				cin>> horainicio_buscar;
 				cout << "Ingrese la hora de fin : "	;
-					cin>> horafin_buscar;
+				cin>> horafin_buscar;
+					
+				tam_clientes = lista_clientes.get_tam();
+				tam_paseadores = lista_paseadores.get_tam();
 				for(int i = 1; i <= tam_clientes; i++){
 					if(lista_clientes.buscar(i).nombre == nombre_buscar ){
 //						cout <<"Nombre está";
@@ -562,6 +566,7 @@ int main(int argc, char** argv) {
 											cout<<"El paseador encargado es: ";
 											cout << lista_paseadores.buscar(j).nombre << " ";
 											cout << lista_paseadores.buscar(j).apellido << " ";
+											cout << endl;
 										}
 									}	
 								}
