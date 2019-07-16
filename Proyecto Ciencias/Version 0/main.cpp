@@ -31,6 +31,8 @@ int main(int argc, char** argv) {
 	//				LECTURA DE ARCHIVOS	
 	//	
 	
+	int pos_save = 0;
+	bool modificar = false;
 	long long tel_celular, id;
 	int tam_sucursales, tam_paseadores, tam_clientes, tam_perros, num_paseadores, num_clientes, tel_fijo,
 		dia_nacimiento, mes_nacimiento, ano_nacimiento, num_perros, h_entrada, h_salida;
@@ -233,6 +235,7 @@ int main(int argc, char** argv) {
 										break;
 									}
 									case 2:{
+										cout << "Agregar Sucursal" << endl;
 										cout << "Nombre Sucursal: ";
 										cin >> nom_sucursal;
 										sucursal.nombre_sucursal = nom_sucursal;
@@ -242,17 +245,25 @@ int main(int argc, char** argv) {
 										cout << "Localidad: ";
 										cin >> localidad;
 										sucursal.localidad = localidad;
-										cout << "Calle de inicio: ";
-										cin >> cll_inicio;
+										do{
+											cout << "Calle de inicio: ";
+											cin >> cll_inicio;
+										}while(cll_inicio < 0);										
 										sucursal.calle_inicio = cll_inicio;
-										cout << "Carrera de inicio: ";
-										cin >> cr_inicio;
+										do{
+											cout << "Carrera de inicio: ";
+											cin >> cr_inicio;
+										}while(cr_inicio < 0);										
 										sucursal.carrera_inicio = cr_inicio;
-										cout << "Calle de fin: ";
-										cin >> cll_fin;
+										do{
+											cout << "Calle de fin: ";
+											cin >> cll_fin;
+										}while(cll_fin < 0);
 										sucursal.calle_fin = cll_fin;
-										cout << "Carrera de fin: ";
-										cin >> cr_fin;
+										do{
+											cout << "Carrera de fin: ";
+											cin >> cr_fin;
+										}while(cr_fin < 0);										
 										sucursal.carrera_fin = cr_fin;
 										sucursal.num_paseadores = 0;
 										sucursal.num_clientes = 0;
@@ -281,6 +292,54 @@ int main(int argc, char** argv) {
 										break;
 									}
 									case 3:{
+										cout << "Modificar Sucursal" << endl;
+										cout << "Nombre Sucursal: ";
+										cin >> nom_sucursal;
+										modificar = false;
+										tam_sucursales = lista_sucursales.get_tam();
+										for(int i = 1; i <= tam_sucursales; i++){
+											if(nom_sucursal == lista_sucursales.buscar(i).nombre_sucursal){
+												cout << "Modificacion " << lista_sucursales.buscar(i).nombre_sucursal << endl;
+												cout << "Nombre Sucursal: ";
+												cin >> nom_sucursal;
+												sucursal.nombre_sucursal = nom_sucursal;
+												cout << "Nombre Gerente: ";
+												cin >> nom_gerente;
+												sucursal.nombre_gerente = nom_gerente;
+												cout << "Localidad: ";
+												cin >> localidad;
+												sucursal.localidad = localidad;
+												do{
+													cout << "Calle de inicio: ";
+													cin >> cll_inicio;
+												}while(cll_inicio < 0);										
+												sucursal.calle_inicio = cll_inicio;
+												do{
+													cout << "Carrera de inicio: ";
+													cin >> cr_inicio;
+												}while(cr_inicio < 0);										
+												sucursal.carrera_inicio = cr_inicio;
+												do{
+													cout << "Calle de fin: ";
+													cin >> cll_fin;
+												}while(cll_fin < 0);
+												sucursal.calle_fin = cll_fin;
+												do{
+													cout << "Carrera de fin: ";
+													cin >> cr_fin;
+												}while(cr_fin < 0);										
+												sucursal.carrera_fin = cr_fin;
+												sucursal.num_paseadores = lista_sucursales.buscar(i).num_paseadores;
+												sucursal.num_clientes = lista_sucursales.buscar(i).num_clientes;
+												pos_save = i;
+												modificar = true;
+											}
+										}
+										if(modificar){
+											lista_sucursales.borrar_nodo(pos_save);
+											lista_sucursales.insertar_inicio(sucursal);
+										}										
+										
 										ofstream file_out_sucursales("sucursales.txt", ios::out|ios::trunc);
 									 	if (!file_out_sucursales.good()){
 										 	cerr << "No se pudo abrir el archivo" << endl;
@@ -304,6 +363,45 @@ int main(int argc, char** argv) {
 										break;
 									}
 									case 4:{
+										cout << "Borrar Sucursal" << endl;
+										cout << "Nombre Sucursal: ";
+										cin >> nom_sucursal;
+										modificar = false;
+										tam_sucursales = lista_sucursales.get_tam();
+										for(int i = 1; i <= tam_sucursales; i++){
+											if(nom_sucursal == lista_sucursales.buscar(i).nombre_sucursal){
+												if((lista_sucursales.buscar(i).num_paseadores == 0) && (lista_sucursales.buscar(i).num_clientes == 0)){
+													pos_save = i;
+													modificar = true;
+												}else{
+													cout << "La sucursal tiene clientes y/o paseadores \nNo se puede eliminar" << endl;
+												}
+											}
+										}
+										if(modificar){
+											lista_sucursales.borrar_nodo(pos_save);
+										}
+										
+										ofstream file_out_sucursales("sucursales.txt", ios::out|ios::trunc);
+									 	if (!file_out_sucursales.good()){
+										 	cerr << "No se pudo abrir el archivo" << endl;
+									    	exit(1);
+										}
+										tam_sucursales = lista_sucursales.get_tam();
+										for(int i = 1; i <= tam_sucursales; i++){
+											file_out_sucursales << lista_sucursales.buscar(i).nombre_sucursal << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).nombre_gerente << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).localidad << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).calle_inicio << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).carrera_inicio << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).calle_fin << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).carrera_fin << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).num_paseadores << " ";
+											file_out_sucursales << lista_sucursales.buscar(i).num_clientes;
+											if(tam_sucursales != i)
+												file_out_sucursales << "\n";
+										}
+										file_out_sucursales.close();
 										break;
 									}
 									default:{
@@ -435,6 +533,7 @@ int main(int argc, char** argv) {
 										break;
 									}
 									case 3:{
+										int k=0;
 										ofstream file_out_clientes("clientes.txt", ios::out|ios::trunc);
 										if (!file_out_clientes.good()){
 										 	cerr << "No se pudo abrir el archivo" << endl;
@@ -448,8 +547,7 @@ int main(int argc, char** argv) {
 											file_out_clientes << lista_clientes.buscar(i).id << " ";
 											file_out_clientes << lista_clientes.buscar(i).sexo << " ";
 											file_out_clientes << lista_clientes.buscar(i).localidad_residencia << " ";
-											file_out_clientes << lista_clientes.buscar(i).num_perros;
-											file_out_clientes << "\n";		
+											file_out_clientes << lista_clientes.buscar(i).num_perros << " ";
 											for(int j = 1; j <= tam_perros; j++){
 												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).id << " ";
 												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).nombre << " ";
@@ -459,8 +557,10 @@ int main(int argc, char** argv) {
 												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).tamano << " ";
 												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).concentrado;
 												if(tam_perros != j)
-													file_out_clientes << "\n";
+													file_out_clientes << " ";
 											}
+											if(tam_clientes != i)
+												file_out_clientes << endl;
 										}
 										file_out_clientes.close();
 										break;
@@ -582,15 +682,19 @@ int main(int argc, char** argv) {
 				string localidad_buscar, raza_buscar;
 				cout << "Ingrese la localidad: ";
 				cin>> localidad_buscar;
-				cout << "Ingrese la localidad: ";
+				cout << "Ingrese la raza: ";
 				cin>> raza_buscar;
+				tam_clientes = lista_clientes.get_tam();
 				for(int i = 1; i <= tam_clientes; i++){
+					tam_perros = lista_clientes.buscar(i).num_perros;
 					if(lista_clientes.buscar(i).localidad_residencia==localidad_buscar){
-					for(int j = 1; j <= tam_perros; j++) {
-						if(lista_clientes.buscar(i).lista_perros.buscar(j).raza==raza_buscar)
-						cout<<"Los clientes son: ";
-						cout<<lista_clientes.buscar(i).nombre<< " ";
-						cout<<lista_clientes.buscar(i).apellido<< " ";
+						for(int j = 1; j <= tam_perros; j++) {
+							if(lista_clientes.buscar(i).lista_perros.buscar(j).raza==raza_buscar){
+								cout<<"Los clientes son: ";
+								cout<<lista_clientes.buscar(i).nombre<< " ";
+								cout<<lista_clientes.buscar(i).apellido<< " ";
+								cout << endl;
+							}
 						}
 					}
 				}

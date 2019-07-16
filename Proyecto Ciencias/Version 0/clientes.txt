@@ -1,2 +1,3 @@
-David Montiel 1000000000 Masculino Teusaquillo 1
-01 Lucas 6 2002 LoboSiberiano Grande NaN
+Adriana Borrego 47830964 Femenino Candelaria 1 4 Manny 7 2006 Rottweiler Grande NaN
+Esmeralda Gonzalez 49944315 Femenino Teusaquillo 2 3 Mueka 4 2010 Beagle Mediano NaN 2 Kiki 12 2012 Poodle Pequeño NaN
+David Montiel 1000000000 Masculino Teusaquillo 1 1 Lucas 6 2002 LoboSiberiano Grande NaN

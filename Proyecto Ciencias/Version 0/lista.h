@@ -30,6 +30,7 @@ class lista{
 	void insertar_final(T d);
 	void insertar_inicio(T d);
 	void borrar_nodo(int pos);
+	void modificar_dato(int pos);
 	T buscar(int pos);
 	T cambiar(int pos, T d);
 	int get_tam();
@@ -187,7 +188,6 @@ T lista <T>::buscar(int pos){
 	if (i == pos){ 
 		return aux -> dato;
 	}
-
 }
 
 
