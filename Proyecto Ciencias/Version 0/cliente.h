@@ -4,8 +4,11 @@
 */
 #ifndef CLIENTE_H
 #define CLIENTE_H
+#include "lista.h"
 
 struct Perro{
+	int id;
+	
 	string nombre;
 	
 	//int dia_nacimiento;

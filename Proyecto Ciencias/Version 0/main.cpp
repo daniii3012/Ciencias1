@@ -152,6 +152,8 @@ int main(int argc, char** argv) {
     	cliente.num_perros = num_perros;
 
     	for(int i = 0; i < num_perros; i++){
+    		file_in_clientes >> id;
+    		perro.id = id;
     		file_in_clientes >> nombre;
     		perro.nombre = nombre;
     		file_in_clientes >> mes_nacimiento;
@@ -170,7 +172,7 @@ int main(int argc, char** argv) {
     	
     	lista_clientes.insertar_inicio(cliente);
    	}
-	file_in_sucursales.close();
+	file_in_clientes.close();
 	
 	//
 	//			MENU
@@ -292,6 +294,8 @@ int main(int argc, char** argv) {
 											cout << lista_paseadores.buscar(i).pais_nacimiento << " ";
 											cout << lista_paseadores.buscar(i).direccion << " ";
 											cout << lista_paseadores.buscar(i).localidad << " ";
+											cout << lista_paseadores.buscar(i).hora_entrada << " ";
+											cout << lista_paseadores.buscar(i).hora_salida << " ";
 											cout << endl;
 										}
 										cout << endl;
@@ -365,6 +369,7 @@ int main(int argc, char** argv) {
 											cout << endl;
 											
 											for(int j = 1; j <= tam_perros; j++){
+												cout << lista_clientes.buscar(i).lista_perros.buscar(j).id << " ";
 												cout << lista_clientes.buscar(i).lista_perros.buscar(j).nombre << " ";
 												cout << lista_clientes.buscar(i).lista_perros.buscar(j).mes_nacimiento << " ";
 												cout << lista_clientes.buscar(i).lista_perros.buscar(j).ano_nacimiento << " ";
@@ -397,6 +402,7 @@ int main(int argc, char** argv) {
 											file_out_clientes << lista_clientes.buscar(i).num_perros;
 											file_out_clientes << "\n";		
 											for(int j = 1; j <= tam_perros; j++){
+												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).id << " ";
 												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).nombre << " ";
 												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).mes_nacimiento << " ";
 												file_out_clientes << lista_clientes.buscar(i).lista_perros.buscar(j).ano_nacimiento << " ";
@@ -430,9 +436,9 @@ int main(int argc, char** argv) {
 			}
 			case 2:{
 				int calle_buscar, cra_buscar;
-				cout << "Ingrese el número de la calle: "	;
+				cout << "Ingrese el n?mero de la calle: "	;
 				cin>> calle_buscar;
-				cout << "Ingrese el número de la carrera: ";
+				cout << "Ingrese el n?mero de la carrera: ";
 				cin>> cra_buscar;
 				
 				tam_sucursales = lista_sucursales.get_tam();
@@ -492,3 +498,4 @@ int main(int argc, char** argv) {
 	
 	return 0;
 }
+
