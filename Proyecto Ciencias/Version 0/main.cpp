@@ -342,6 +342,7 @@ int main(int argc, char** argv) {
 											cout << lista_paseadores.buscar(i).localidad << " ";
 											cout << lista_paseadores.buscar(i).hora_entrada << " ";
 											cout << lista_paseadores.buscar(i).hora_salida << " ";
+											cout << lista_paseadores.buscar(i).num_perros << " ";
 											cout << endl;
 										}
 										cout << endl;
