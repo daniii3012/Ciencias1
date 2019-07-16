@@ -1,8 +1,8 @@
-Sucursal1 Daniel Montiel CC 1013693586 Masculino 6570494 3505941050 
-daniel_301999@hotmail.com 30 12 1999 Bogota Colombia Cll24#47-33 QuintaParedes 8 11
-Sucursal1 Nombre Apellido CC 1000000000 Femenino 000000 0000000000 
-correo 01 01 1999 ciudad Colombia direccion barrio 10 12
-Sucursal2 Benito Padilla CC 45662845 Masculino 9632587 3104568574
-bpadilla@yahoo.com 14 02 2000 Pereira Colombia Cr19#63a-96 Baquero 8 13
 Sucursal3 Alexandra Bartos CC 55780139 Femenino 4992551 3144562581
-alexabartos@hotmail.com 04 04 1979 Pasto Colombia Cll20b#43a-54 Ortezal 7 9
+alexabartos@hotmail.com 4 4 1979 Pasto Colombia Cll20b#43a-54 Candelaria 7 9
+Sucursal2 Benito Padilla CC 45662845 Masculino 9632587 3104568574
+bpadilla@yahoo.com 14 2 2000 Pereira Colombia Cr19#63a-96 Tunjuelito 8 13
+Sucursal1 Nombre Apellido CC 1000000000 Femenino 0 0
+correo 1 1 1999 ciudad Colombia direccion Teusaquillo 10 12
+Sucursal1 Daniel Montiel CC 1013693586 Masculino 6570494 3505941050
+daniel_301999@hotmail.com 30 12 1999 Bogota Colombia Cll24#47-33 Teusaquillo 8 11
