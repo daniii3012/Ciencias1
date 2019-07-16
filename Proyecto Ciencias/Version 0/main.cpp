@@ -41,9 +41,9 @@ int main(int argc, char** argv) {
 	Paseador paseador;
 	lista<Paseador> lista_paseadores;
 	
+	lista< Cliente<Perro> > lista_clientes;
 	Perro perro;
 	Cliente<Perro> cliente;
-	lista< Cliente<Perro> > lista_clientes;
 	
 	ifstream file_in_sucursales("sucursales.txt", ios::in);
  	//ofstream file_out_sucursales("sucursales.txt", ios::out|ios::trunc);
@@ -217,7 +217,7 @@ int main(int argc, char** argv) {
 	
 	tam_clientes = lista_clientes.get_tam();
 	for(int i = 1; i <= tam_clientes; i++){
-		tam_perros = lista_clientes.buscar(i).lista_perros.get_tam();
+		tam_perros = lista_clientes.buscar(i).num_perros;
 		cout << lista_clientes.buscar(i).nombre << " ";
 		cout << lista_clientes.buscar(i).apellido << " ";
 		cout << lista_clientes.buscar(i).id << " ";
