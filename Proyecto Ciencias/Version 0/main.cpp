@@ -30,7 +30,8 @@ int main(int argc, char** argv) {
 	long long tel_celular, id;
 	int tam_sucursales, tam_paseadores, tam_clientes, tam_perros, num_paseadores, num_clientes, tel_fijo,
 		dia_nacimiento, mes_nacimiento, ano_nacimiento, num_perros, h_entrada, h_salida;
-	string nom_sucursal, nom_gerente, localidad, cll_inicio, cr_inicio, cll_fin, cr_fin;
+	string nom_sucursal, nom_gerente, localidad;
+	int cll_inicio, cr_inicio, cll_fin, cr_fin;
 	
 	Sucursal sucursal;	
 	lista<Sucursal> lista_sucursales;
@@ -239,6 +240,27 @@ int main(int argc, char** argv) {
 		}
 	}
 	cout << endl;
+	
+	int calle_buscar, cra_buscar;
+	cout << "Ingrese el número de la calle: "	;
+	cin>> calle_buscar;
+	cout << "Ingrese el número de la carrera: ";
+	cin>> cra_buscar;
+	for(int i = 1; i <= tam_sucursales; i++){
+		if((lista_sucursales.buscar(i).calle_fin) > calle_buscar){
+			//cout<< "Calle es menor que calle fin";
+			if(lista_sucursales.buscar(i).calle_inicio < calle_buscar){
+			//	cout<<"Calle es mayor que calle inicial";
+				if(lista_sucursales.buscar(i).carrera_fin > cra_buscar){
+			//		cout<<"Carrera es menor que cra fin";
+					if(lista_sucursales.buscar(i).carrera_inicio < cra_buscar ){
+			//				cout<<"Carrera es menor que cra fin";
+							cout <<"La sucursal que puede hacerse cargo es: " <<lista_sucursales.buscar(i).nombre_sucursal << " ";				
+					}
+				}
+			}
+		}
+	} 
 	
 	return 0;
 }

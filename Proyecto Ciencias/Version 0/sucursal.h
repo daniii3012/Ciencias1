@@ -10,10 +10,10 @@ struct Sucursal{
 	string nombre_gerente;
 	string localidad;
 	
-	string calle_inicio;
-	string carrera_inicio;
-	string calle_fin;
-	string carrera_fin;
+	int calle_inicio;
+	int carrera_inicio;
+	int calle_fin;
+	int carrera_fin;
 	
 	int num_paseadores;
 	int num_clientes;
