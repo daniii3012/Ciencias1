@@ -23,7 +23,7 @@ struct Paseador{
 	string ciudad_nacimiento;
 	string pais_nacimiento;
 	string direccion;
-	string barrio;
+	string localidad;
 	
 	int hora_entrada;
 	int hora_salida;

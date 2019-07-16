@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
 	Sucursal sucursal;	
 	lista<Sucursal> lista_sucursales;
 	
-	string nombre, apellido, tipo_id, sexo, e_mail, ciudad_nacimiento, pais_nacimiento, dir_paseador, barrio_paseador,
+	string nombre, apellido, tipo_id, sexo, e_mail, ciudad_nacimiento, pais_nacimiento, dir_paseador, localidad_paseador,
 		raza, tamano, concentrado;
 	
 	Paseador paseador;
@@ -140,8 +140,8 @@ int main(int argc, char** argv) {
     	paseador.pais_nacimiento = pais_nacimiento;
     	file_in_paseadores >> dir_paseador;
     	paseador.direccion = dir_paseador;
-    	file_in_paseadores >> barrio_paseador;
-    	paseador.barrio = barrio_paseador;
+    	file_in_paseadores >> localidad_paseador;
+    	paseador.localidad = localidad_paseador;
     	file_in_paseadores >> h_entrada;
     	paseador.hora_entrada = h_entrada;
     	file_in_paseadores >> h_salida;
@@ -168,7 +168,7 @@ int main(int argc, char** argv) {
 		cout << lista_paseadores.buscar(i).ciudad_nacimiento << " ";
 		cout << lista_paseadores.buscar(i).pais_nacimiento << " ";
 		cout << lista_paseadores.buscar(i).direccion << " ";
-		cout << lista_paseadores.buscar(i).barrio << " ";
+		cout << lista_paseadores.buscar(i).localidad << " ";
 		cout << endl;
 	}
 	cout << endl;
@@ -247,7 +247,7 @@ int main(int argc, char** argv) {
 	cout << "Ingrese el número de la carrera: ";
 	cin>> cra_buscar;
 	for(int i = 1; i <= tam_sucursales; i++){
-		if((lista_sucursales.buscar(i).calle_fin) > calle_buscar){
+		if(lista_sucursales.buscar(i).calle_fin > calle_buscar){
 			//cout<< "Calle es menor que calle fin";
 			if(lista_sucursales.buscar(i).calle_inicio < calle_buscar){
 			//	cout<<"Calle es mayor que calle inicial";
@@ -261,6 +261,32 @@ int main(int argc, char** argv) {
 			}
 		}
 	} 
+ 	
+ 	int horainicio_buscar, horafin_buscar;
+	string localidad_buscar;
+	cout << "Ingrese la hora de inicio: "	;
+	cin>> horainicio_buscar;
+	cout << "Ingrese la hora de fin : "	;
+	cin>> horafin_buscar;
+	cout << "Ingrese la localidad: ";
+	cin>> localidad_buscar;
+	
+	for(int i = 1; i <= tam_paseadores; i++){
+		if(lista_paseadores.buscar(i).localidad== localidad_buscar){
+//			cout<<"Localidad esta";
+			if(lista_paseadores.buscar(i).hora_entrada <= horainicio_buscar){
+//				cout<<"Horario del paseador es menor o igual a la indicada";
+				if(lista_paseadores.buscar(i).hora_salida >= horafin_buscar){
+//					cout<<"Horario final del paseador es mayor o igual a la indicada";
+					cout<<"El paseador encargado es: ";
+					cout << lista_paseadores.buscar(i).nombre << " ";
+					cout << lista_paseadores.buscar(i).apellido << " ";
+				}
+			}
+		}
+	}
+	
+	
 	
 	return 0;
 }
