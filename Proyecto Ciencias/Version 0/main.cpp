@@ -325,19 +325,19 @@ int main(int argc, char** argv) {
 										for(int i = 1; i <= tam_paseadores; i++){
 											cout << lista_paseadores.buscar(i).sucursal << " ";
 											cout << lista_paseadores.buscar(i).nombre << " ";
-											cout << lista_paseadores.buscar(i).apellido << " ";
+											//cout << lista_paseadores.buscar(i).apellido << " ";
 											cout << lista_paseadores.buscar(i).tipo_id << " ";
 											cout << lista_paseadores.buscar(i).id << " ";
 											cout << lista_paseadores.buscar(i).sexo << " ";
-											cout << lista_paseadores.buscar(i).tel_fijo << " ";
-											cout << lista_paseadores.buscar(i).tel_celular << " ";
-											cout << lista_paseadores.buscar(i).e_mail << " ";
-											cout << lista_paseadores.buscar(i).dia_nacimiento << " ";
+											//cout << lista_paseadores.buscar(i).tel_fijo << " ";
+											//cout << lista_paseadores.buscar(i).tel_celular << " ";
+											//cout << lista_paseadores.buscar(i).e_mail << " ";
+											//cout << lista_paseadores.buscar(i).dia_nacimiento << " ";
 											cout << lista_paseadores.buscar(i).mes_nacimiento << " ";
 											cout << lista_paseadores.buscar(i).ano_nacimiento << " ";
-											cout << lista_paseadores.buscar(i).ciudad_nacimiento << " ";
-											cout << lista_paseadores.buscar(i).pais_nacimiento << " ";
-											cout << lista_paseadores.buscar(i).direccion << " ";
+											//cout << lista_paseadores.buscar(i).ciudad_nacimiento << " ";
+											//cout << lista_paseadores.buscar(i).pais_nacimiento << " ";
+											//cout << lista_paseadores.buscar(i).direccion << " ";
 											cout << lista_paseadores.buscar(i).localidad << " ";
 											cout << lista_paseadores.buscar(i).hora_entrada << " ";
 											cout << lista_paseadores.buscar(i).hora_salida << " ";
