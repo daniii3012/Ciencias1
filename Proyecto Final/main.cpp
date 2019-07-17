@@ -710,7 +710,7 @@ int main(int argc, char** argv) {
 												cout << lista_clientes.buscar(i).lista_perros.buscar(j).ano_nacimiento << " ";
 												cout << lista_clientes.buscar(i).lista_perros.buscar(j).raza << " ";
 												cout << lista_clientes.buscar(i).lista_perros.buscar(j).tamano << " ";
-												cout << lista_clientes.buscar(i).lista_perros.buscar(j).concentrado << " ";
+												//cout << lista_clientes.buscar(i).lista_perros.buscar(j).concentrado << " ";
 												cout << endl;
 											}
 											cout << endl;
