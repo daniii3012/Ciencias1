@@ -288,6 +288,14 @@ void consulta_hora_localidad(lista<Paseador> lista_paseadores, lista< Cliente<Pe
 	cout << endl;
 }
 
+void mostrar_titulo(){
+	cout << " ____                      _____     _   " << endl;
+	cout << "|    \\ ___ ___ ___ ___ ___|     |_ _| |_ " << endl;
+	cout << "|  |  | . | . | . | -_|  _|  |  | | |  _|" << endl;
+	cout << "|____/|___|_  |_  |___|_| |_____|___|_|  " << endl;
+    cout << "          |___|___|                      " << endl << endl;
+}
+
 int main(int argc, char** argv) {
 	// Creacion de la lista sucursales
 	Sucursal sucursal;	
@@ -324,11 +332,7 @@ int main(int argc, char** argv) {
 		
 		menu2 = false;
 		system("cls");
-		cout << " ____                      _____     _   " << endl;
-		cout << "|    \\ ___ ___ ___ ___ ___|     |_ _| |_ " << endl;
-		cout << "|  |  | . | . | . | -_|  _|  |  | | |  _|" << endl;
-		cout << "|____/|___|_  |_  |___|_| |_____|___|_|  " << endl;
-        cout << "          |___|___|                      " << endl << endl;
+		mostrar_titulo();
 		cout << "1) Ver / Modificar Registros" << endl;
 		cout << "2) Realizar Consultas" << endl;
 		cout << "3) Realizar la Simulacion" << endl;
@@ -339,6 +343,7 @@ int main(int argc, char** argv) {
 				while(!menu2){
 					menu3 = false;
 					system("cls");
+					mostrar_titulo();
 					cout << "1) Registros de Sucursales" << endl;
 					cout << "2) Registros de Paseadores" << endl;
 					cout << "3) Registros de Clientes" << endl;
@@ -348,6 +353,7 @@ int main(int argc, char** argv) {
 						case 1:{
 							while(!menu3){
 								system("cls");
+								mostrar_titulo();
 								cout << "1) Ver Sucursales" << endl;
 								cout << "2) Agregar Sucursal" << endl;
 								cout << "3) Modificar Sucursal" << endl;
@@ -387,25 +393,17 @@ int main(int argc, char** argv) {
 										cout << "Localidad: ";
 										cin >> localidad;
 										sucursal.localidad = localidad;
-										do{
 											cout << "Calle de inicio: ";
-											cin >> cll_inicio;
-										}while(cll_inicio < 0);										
+											cin >> cll_inicio;										
 										sucursal.calle_inicio = cll_inicio;
-										do{
 											cout << "Carrera de inicio: ";
-											cin >> cr_inicio;
-										}while(cr_inicio < 0);										
+											cin >> cr_inicio;										
 										sucursal.carrera_inicio = cr_inicio;
-										do{
 											cout << "Calle de fin: ";
 											cin >> cll_fin;
-										}while(cll_fin < 0);
 										sucursal.calle_fin = cll_fin;
-										do{
 											cout << "Carrera de fin: ";
-											cin >> cr_fin;
-										}while(cr_fin < 0);										
+											cin >> cr_fin;									
 										sucursal.carrera_fin = cr_fin;
 										// Inicializacion del numero de paseadores y clientes en 0
 										sucursal.num_paseadores = 0;
@@ -436,25 +434,17 @@ int main(int argc, char** argv) {
 												cout << "Localidad: ";
 												cin >> localidad;
 												sucursal.localidad = localidad;
-												do{
 													cout << "Calle de inicio: ";
-													cin >> cll_inicio;
-												}while(cll_inicio < 0);										
+													cin >> cll_inicio;									
 												sucursal.calle_inicio = cll_inicio;
-												do{
 													cout << "Carrera de inicio: ";
-													cin >> cr_inicio;
-												}while(cr_inicio < 0);										
+													cin >> cr_inicio;										
 												sucursal.carrera_inicio = cr_inicio;
-												do{
 													cout << "Calle de fin: ";
 													cin >> cll_fin;
-												}while(cll_fin < 0);
 												sucursal.calle_fin = cll_fin;
-												do{
 													cout << "Carrera de fin: ";
-													cin >> cr_fin;
-												}while(cr_fin < 0);										
+													cin >> cr_fin;										
 												sucursal.carrera_fin = cr_fin;
 												sucursal.num_paseadores = lista_sucursales.buscar(i).num_paseadores;
 												sucursal.num_clientes = lista_sucursales.buscar(i).num_clientes;
@@ -491,6 +481,7 @@ int main(int argc, char** argv) {
 											lista_sucursales.borrar_nodo(pos_save);
 										}else{
 											cout << "No se puede eliminar\nLa sucursal tiene clientes y/o paseadores " << endl;
+											system("pause");
 										}
 										// Actualizacion del archivo sucursales
 										write_file_sucursales(lista_sucursales);
@@ -507,6 +498,7 @@ int main(int argc, char** argv) {
 						case 2:{
 							while(!menu3){
 								system("cls");
+								mostrar_titulo();
 								cout << "1) Ver Paseadores" << endl;
 								cout << "2) Agregar Paseador" << endl;
 								cout << "3) Modificar Paseador" << endl;
@@ -700,6 +692,7 @@ int main(int argc, char** argv) {
 						case 3:{
 							while(!menu3){
 								system("cls");
+								mostrar_titulo();
 								cout << "1) Ver Clientes" << endl;
 								cout << "2) Agregar Cliente" << endl;
 								cout << "3) Modificar Cliente" << endl;
@@ -775,6 +768,7 @@ int main(int argc, char** argv) {
 				while(!menu2){
 					menu3 = false;
 					system("cls");
+					mostrar_titulo();
 					cout << "1) Consultar una sucursal por un area definida por calle y carrera" << endl;
 					cout << "2) Consultar paseadores disponibles por hora y localidad" << endl;
 					cout << "3) Consultar paseadores disponibles por cliente y hora" << endl;
@@ -953,6 +947,7 @@ int main(int argc, char** argv) {
 					modificar = false;
 					menu3 = false;
 					system("cls");
+					mostrar_titulo();
 					cout << "1) Solicitar paseador" << endl;
 					cout << "2) Terminar simulacion" << endl;
 					cin >> opcion2;
