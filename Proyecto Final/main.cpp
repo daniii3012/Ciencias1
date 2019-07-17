@@ -572,7 +572,7 @@ int main(int argc, char** argv) {
 												cin >> e_mail;
 												paseador.e_mail = e_mail;
 												do{
-													cout << "Año de nacimiento: ";
+													cout << "Aï¿½o de nacimiento: ";
 													cin >> ano_nacimiento;
 												}while(ano_nacimiento >= 2000);
 												paseador.ano_nacimiento = ano_nacimiento;
@@ -594,7 +594,7 @@ int main(int argc, char** argv) {
 													}while(dia_nacimiento <= 0 || dia_nacimiento >= 31);
 													paseador.dia_nacimiento = dia_nacimiento;
 												}else if(mes_nacimiento == 2){
-													// No tiene en cuenta años biciestos
+													// No tiene en cuenta aï¿½os biciestos
 													do{
 														cout << "Dia de nacimiento: ";
 														cin >> dia_nacimiento;
@@ -984,7 +984,7 @@ int main(int argc, char** argv) {
 								if(paseador.num_perros <= 1 && cliente.num_perros >= 1){
 									paseador.num_perros++;
 									paseador.perros_paseador.insertar_inicio(perro);
-									cout << "El perro " << cliente.lista_perros.buscar(pos2).nombre << " ha sido añadido al paseador " << paseador.nombre << endl << endl;
+									cout << "El perro " << cliente.lista_perros.buscar(pos2).nombre << " ha sido aï¿½adido al paseador " << paseador.nombre << endl << endl;
 									cliente.num_perros--;
 									cliente.lista_perros.borrar_nodo(pos2);
 								}else if(paseador.num_perros >= 2){
@@ -1007,7 +1007,6 @@ int main(int argc, char** argv) {
 							for(int i = 0; i < 5; i++){
 								cant_perros_localidad.insertar_inicio(0);
 							}
-							
 							
 							tam_paseadores = lista_paseadores.get_tam();
 							for(int i = 1; i <= tam_paseadores; i++){
@@ -1057,7 +1056,6 @@ int main(int argc, char** argv) {
 						}
 					}
 				}
-				
 				break;
 			}
 			default:{
