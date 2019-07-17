@@ -260,9 +260,9 @@ void write_file_clientes(lista< Cliente<Perro> > lista_clientes){
 void consulta_hora_localidad(lista<Paseador> lista_paseadores, lista< Cliente<Perro> > lista_clientes, int& id_paseador, int& id_cliente){
 	int horainicio_buscar, horafin_buscar;
 	string localidad_buscar, nombre_buscar, apellido_buscar;
-	cout << "Ingrese nombre de cliente: "	;
+	cout << "Ingrese el nombre del cliente: "	;
 	cin>> nombre_buscar;
-	cout << "Ingrese apellido de cliente: "	;
+	cout << "Ingrese el apellido del cliente: "	;
 	cin>> apellido_buscar;
 	do{
 		cout << "Ingrese la hora de inicio: "	;
@@ -275,18 +275,13 @@ void consulta_hora_localidad(lista<Paseador> lista_paseadores, lista< Cliente<Pe
 	int tam_clientes = lista_clientes.get_tam();
 	int tam_paseadores = lista_paseadores.get_tam();
 	for(int i = 1; i <= tam_clientes; i++){
-		if(lista_clientes.buscar(i).nombre == nombre_buscar ){
-			if(lista_clientes.buscar(i).apellido == apellido_buscar){
-				localidad_buscar = lista_clientes.buscar(i).localidad_residencia;
-				for(int j = 1; j <= tam_paseadores; j++){
-					if(lista_paseadores.buscar(j).localidad== localidad_buscar){
-						if(lista_paseadores.buscar(j).hora_entrada <= horainicio_buscar){
-							if(lista_paseadores.buscar(j).hora_salida >= horafin_buscar){
-								id_paseador = lista_paseadores.buscar(j).id;
-								id_cliente = lista_clientes.buscar(i).id;
-							}
-						}	
-					}
+		if(lista_clientes.buscar(i).nombre == nombre_buscar && lista_clientes.buscar(i).apellido == apellido_buscar){
+			localidad_buscar = lista_clientes.buscar(i).localidad_residencia;
+			for(int j = 1; j <= tam_paseadores; j++){
+				if(lista_paseadores.buscar(j).localidad== localidad_buscar && lista_paseadores.buscar(j).hora_entrada <= horainicio_buscar
+					&& lista_paseadores.buscar(j).hora_salida > horafin_buscar && lista_paseadores.buscar(j).num_perros < 2){
+					id_paseador = lista_paseadores.buscar(j).id;
+					id_cliente = lista_clientes.buscar(i).id;	
 				}
 			}
 		}	
@@ -374,7 +369,7 @@ int main(int argc, char** argv) {
 									}
 									case 2:{
 										cout << "Agregar Sucursal" << endl;
-										cout << "Nombre Sucursal: ";
+										cout << "Nombre de la Sucursal: ";
 										cin >> nom_sucursal;
 										sucursal.nombre_sucursal = nom_sucursal;
 										cout << "Nombre Gerente: ";
@@ -762,9 +757,9 @@ int main(int argc, char** argv) {
 				while(!menu2){
 					menu3 = false;
 					system("cls");
-					cout << "1) Consultar una sucursal por area." << endl;
-					cout << "2) Consultar paseadores disponibles por hora y localidad." << endl;
-					cout << "3) Consultar paseadores disponibles por cliente y hora." << endl;
+					cout << "1) Consultar una sucursal por un area definida por calle y carrera" << endl;
+					cout << "2) Consultar paseadores disponibles por hora y localidad" << endl;
+					cout << "3) Consultar paseadores disponibles por cliente y hora" << endl;
 					cout << "4) Consultar clientes por localidad y raza de perro" << endl;
 					cout << "5) Consultar perros por localidad y tamano" << endl;
 					cout << "6) Atras" << endl;
@@ -779,14 +774,9 @@ int main(int argc, char** argv) {
 							
 							tam_sucursales = lista_sucursales.get_tam();
 							for(int i = 1; i <= tam_sucursales; i++){
-								if(lista_sucursales.buscar(i).calle_fin > calle_buscar){
-									if(lista_sucursales.buscar(i).calle_inicio < calle_buscar){
-										if(lista_sucursales.buscar(i).carrera_fin > cra_buscar){
-											if(lista_sucursales.buscar(i).carrera_inicio < cra_buscar ){
-													cout <<"La sucursal que puede hacerse cargo es: " <<lista_sucursales.buscar(i).nombre_sucursal << " " << endl;				
-											}
-										}
-									}
+								if(lista_sucursales.buscar(i).calle_fin > calle_buscar && lista_sucursales.buscar(i).calle_inicio < calle_buscar
+									&& lista_sucursales.buscar(i).carrera_fin > cra_buscar && lista_sucursales.buscar(i).carrera_inicio < cra_buscar){
+									cout <<"La sucursal que puede hacerse cargo es: " <<lista_sucursales.buscar(i).nombre_sucursal << " " << endl;
 								}
 							}
 							cout << endl;
@@ -806,15 +796,12 @@ int main(int argc, char** argv) {
 							
 							tam_paseadores = lista_paseadores.get_tam();
 							for(int i = 1; i <= tam_paseadores; i++){
-								if(lista_paseadores.buscar(i).localidad== localidad_buscar){
-									if(lista_paseadores.buscar(i).hora_entrada <= horainicio_buscar){
-										if(lista_paseadores.buscar(i).hora_salida >= horafin_buscar){
-											cout<<"El paseador encargado es: ";
-											cout << lista_paseadores.buscar(i).nombre << " ";
-											cout << lista_paseadores.buscar(i).apellido << " ";
-											cout << endl;
-										}
-									}
+								if(lista_paseadores.buscar(i).localidad == localidad_buscar && lista_paseadores.buscar(i).hora_entrada <= horainicio_buscar
+									&& lista_paseadores.buscar(i).hora_salida >= horafin_buscar){
+									cout<<"El paseador encargado es: ";
+									cout << lista_paseadores.buscar(i).nombre << " ";
+									cout << lista_paseadores.buscar(i).apellido << " ";
+									cout << endl;
 								}
 							}
 							cout << endl;
@@ -837,20 +824,15 @@ int main(int argc, char** argv) {
 							tam_clientes = lista_clientes.get_tam();
 							tam_paseadores = lista_paseadores.get_tam();
 							for(int i = 1; i <= tam_clientes; i++){
-								if(lista_clientes.buscar(i).nombre == nombre_buscar ){
-									if(lista_clientes.buscar(i).apellido == apellido_buscar){
-										localidad_buscar = lista_clientes.buscar(i).localidad_residencia;
-										for(int j = 1; j <= tam_paseadores; j++){
-											if(lista_paseadores.buscar(j).localidad== localidad_buscar){
-												if(lista_paseadores.buscar(j).hora_entrada <= horainicio_buscar){
-													if(lista_paseadores.buscar(j).hora_salida >= horafin_buscar){
-														cout<<"El paseador encargado es: ";
-														cout << lista_paseadores.buscar(j).nombre << " ";
-														cout << lista_paseadores.buscar(j).apellido << " ";
-														cout << endl;
-													}
-												}	
-											}
+								if(lista_clientes.buscar(i).nombre == nombre_buscar && lista_clientes.buscar(i).apellido == apellido_buscar){
+									localidad_buscar = lista_clientes.buscar(i).localidad_residencia;
+									for(int j = 1; j <= tam_paseadores; j++){
+										if(lista_paseadores.buscar(j).localidad== localidad_buscar && lista_paseadores.buscar(j).hora_entrada <= horainicio_buscar
+											&& lista_paseadores.buscar(j).hora_salida > horafin_buscar && lista_paseadores.buscar(j).num_perros < 2){
+											cout<<"El paseador encargado es: ";
+											cout << lista_paseadores.buscar(j).nombre << " ";
+											cout << lista_paseadores.buscar(j).apellido << " ";
+											cout << endl;	
 										}
 									}
 								}	
@@ -889,7 +871,7 @@ int main(int argc, char** argv) {
 							string localidad_buscar, tamano_buscar;
 							cout << "Ingrese la localidad: ";
 							cin>> localidad_buscar;
-							cout << "Ingrese el tamano: ";
+							cout << "Ingrese el tamano del perro: ";
 							cin>> tamano_buscar;
 							tam_clientes = lista_clientes.get_tam();
 							for(int i = 1; i <= tam_clientes; i++){
@@ -957,11 +939,11 @@ int main(int argc, char** argv) {
 								lista_paseadores.borrar_nodo(pos_save);
 								lista_clientes.borrar_nodo(pos1);
 								if(paseador.num_perros <= 1 && cliente.num_perros >= 1){
+									paseador.num_perros++;
+									paseador.perros_paseador.insertar_inicio(perro);
 									cout << "El perro " << cliente.lista_perros.buscar(pos2).nombre << " ha sido añadido al paseador " << paseador.nombre << endl;
 									cliente.num_perros--;
 									cliente.lista_perros.borrar_nodo(pos2);
-									paseador.num_perros++;
-									paseador.perros_paseador.insertar_inicio(perro);
 								}else if(paseador.num_perros >= 2){
 									cout << "El paseador no esta disponible" << endl;
 								}

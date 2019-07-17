@@ -1,6 +1,6 @@
-Sucursal3 AndreaLozada Candelaria 0 0 30 30 2 2
-Sucursal6 RobertoMarino Kennedy 15 15 30 35 2 1
-Sucursal5 JaimeSalvador CiudadBolivar 10 10 40 40 2 2
-Sucursal4 AngelinaRossetti Kennedy 20 15 55 55 2 1
-Sucursal2 DarioZamudio Suba 110 110 170 165 2 3
-Sucursal1 MariaRivera Teusaquillo 40 45 70 70 2 3
+Sucursal3 AndreaLozada Chapinero 39 1 99 14 2 2
+Sucursal6 RobertoMarino Kennedy -56 69 17 107 2 1
+Sucursal5 JaimeSalvador CiudadBolivar -116 -13 -62 67 2 2
+Sucursal4 AngelinaRossetti Kennedy -40 69 17 84 2 1
+Sucursal2 DarioZamudio Suba 100 1 247 24 2 3
+Sucursal1 MariaRivera Teusaquillo 27 15 63 68 2 3

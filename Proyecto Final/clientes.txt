@@ -1,4 +1,4 @@
-Adriana Borrego 47830964 Femenino Candelaria 1 4 Manny 7 2006 Rottweiler Grande NaN
+Adriana Borrego 47830964 Femenino Chapinero 1 4 Manny 7 2006 Rottweiler Grande NaN
 Esmeralda Gonzalez 49944315 Femenino Teusaquillo 2 3 Mueka 4 2010 Beagle Mediano NaN 2 Kiki 12 2012 Poodle Pequeño NaN
 David Montiel 1022358565 Masculino Teusaquillo 1 1 Lucas 6 2002 HuskySiberiano Grande NaN
 Oliverio Suarez 37408139 Masculino Suba 1 05 Mara 03 2005 Pomerania Pequeño NaN
@@ -9,4 +9,4 @@ Horacio Bravo 46013123 Masculino Suba 3 10 Heaven 01 2011 Beagle Mediano NaN 11 
 Flor Bermudez 41104098 Femenino CiudadBolivar 2 13 Randy 08 2012 MalamuteAlaska Grande NaN 14 Rainbow 02 2013 ChowChow Grande NaN
 Alexis Ruesta 45598677 Masculino Teusaquillo 1 15 Freddy 10 2009 Beagle Mediano NaN
 Ruben Broz 54649501 Masculino Suba 2 16 Godzilla 04 2011 Bulldog Mediano NaN 17 Arandela 12 2017 Pug Pequeño NaN
-Julia Arboles 43692579 Femenino Candelaria 1 18 Lena 11 2015 Poodle NaN
+Julia Arboles 43692579 Femenino Chapinero 1 18 Lena 11 2015 Poodle NaN
