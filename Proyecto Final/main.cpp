@@ -27,6 +27,7 @@
 using namespace std;
 
 // Declaracion de variables
+
 int pos_save = 0;
 bool modificar = false;
 long long tel_celular, id;
@@ -300,14 +301,6 @@ int main(int argc, char** argv) {
 	Cliente<Perro> cliente;
 	Perro perro;
 	
-	// Lista de localidades usada para la simulacion
-	lista<string> localidades;
-	localidades.insertar_inicio("CiudadBolivar");
-	localidades.insertar_inicio("Kennedy");
-	localidades.insertar_inicio("Chapinero");
-	localidades.insertar_inicio("Teusaquillo");
-	localidades.insertar_inicio("Suba");
-	
 	// Lectura de archivos
 	read_file_sucursales(lista_sucursales, sucursal);
 	read_file_paseadores(lista_paseadores, paseador);
@@ -375,7 +368,6 @@ int main(int argc, char** argv) {
 										break;
 									}
 									case 2:{
-										// Agregar una nueva sucursal
 										cout << "Agregar Sucursal" << endl;
 										cout << "Nombre de la Sucursal: ";
 										cin >> nom_sucursal;
@@ -406,7 +398,6 @@ int main(int argc, char** argv) {
 											cin >> cr_fin;
 										}while(cr_fin < 0);										
 										sucursal.carrera_fin = cr_fin;
-										// Inicializacion del numero de paseadores y clientes en 0
 										sucursal.num_paseadores = 0;
 										sucursal.num_clientes = 0;
 										// Inserta la nueva sucursal
@@ -417,7 +408,6 @@ int main(int argc, char** argv) {
 										break;
 									}
 									case 3:{
-										// Modificar una sucursal
 										cout << "Modificar Sucursal" << endl;
 										cout << "Nombre Sucursal: ";
 										cin >> nom_sucursal;
@@ -471,8 +461,7 @@ int main(int argc, char** argv) {
 										break;
 									}
 									case 4:{
-										// Eliminar una sucursal
-										cout << "Eliminar Sucursal" << endl;
+										cout << "Borrar Sucursal" << endl;
 										cout << "Nombre Sucursal: ";
 										cin >> nom_sucursal;
 										modificar = false;
@@ -482,14 +471,14 @@ int main(int argc, char** argv) {
 												if((lista_sucursales.buscar(i).num_paseadores == 0) && (lista_sucursales.buscar(i).num_clientes == 0)){
 													pos_save = i;
 													modificar = true;
+												}else{
+													cout << "La sucursal tiene clientes y/o paseadores \nNo se puede eliminar" << endl;
 												}
 											}
 										}
 										// Eliminacion de la sucursal
 										if(modificar){
 											lista_sucursales.borrar_nodo(pos_save);
-										}else{
-											cout << "No se puede eliminar\nLa sucursal tiene clientes y/o paseadores " << endl;
 										}
 										// Actualizacion del archivo sucursales
 										write_file_sucursales(lista_sucursales);
@@ -545,7 +534,6 @@ int main(int argc, char** argv) {
 										break;
 									}
 									case 2:{
-										// Agregar un paseador
 										cout << "Agregar Paseador" << endl;
 										cout << "Sucursal: ";
 										cin >> nom_sucursal;
@@ -648,14 +636,12 @@ int main(int argc, char** argv) {
 										break;
 									}
 									case 3:{
-										// Modificar un paseador actual
 										// Actualizacion del archivo paseadores
 										write_file_paseadores(lista_paseadores);
 										system("cls");
 										break;
 									}
 									case 4:{
-										// Eliminar un paseador
 										int pos1=0;
 										cout << "Eliminar Paseador" << endl;
 										cout << "ID: ";
@@ -698,6 +684,7 @@ int main(int argc, char** argv) {
 						}
 						case 3:{
 							while(!menu3){
+								// Impresion de los clientes junto con sus perros
 								system("cls");
 								cout << "1) Ver Clientes" << endl;
 								cout << "2) Agregar Cliente" << endl;
@@ -707,7 +694,6 @@ int main(int argc, char** argv) {
 								cin >> opcion3;
 								switch(opcion3){
 									case 1:{
-										// Impresion de los clientes junto con sus perros
 										tam_clientes = lista_clientes.get_tam();
 										for(int i = 1; i <= tam_clientes; i++){
 											tam_perros = lista_clientes.buscar(i).num_perros;
@@ -735,21 +721,18 @@ int main(int argc, char** argv) {
 										break;
 									}
 									case 2:{
-										// Agregar un nuevo cliente
 										// Actualizacion del archivo clientes
 										write_file_clientes(lista_clientes);
 										system("cls");
 										break;
 									}
 									case 3:{
-										// Modificar un cliente actual
 										// Actualizacion del archivo clientes
 										write_file_clientes(lista_clientes);
 										system("cls");
 										break;
 									}
 									case 4:{
-										// Eliminar un cliente
 										// Actualizacion del archivo clientes
 										write_file_clientes(lista_clientes);
 										system("cls");
@@ -779,7 +762,8 @@ int main(int argc, char** argv) {
 					cout << "3) Consultar paseadores disponibles por cliente y hora" << endl;
 					cout << "4) Consultar clientes por localidad y raza de perro" << endl;
 					cout << "5) Consultar perros por localidad y tamano" << endl;
-					cout << "6) Atras" << endl;
+					cout << "6) Consultar perros por rango de edad" << endl;
+					cout << "7) Atras" << endl;
 					cin >> opcion2;
 					switch(opcion2){
 						case 1:{
@@ -908,6 +892,30 @@ int main(int argc, char** argv) {
 							system("cls");
 							break;
 						}
+						case 6:{
+						int edadinicio_buscar, edadfin_buscar, edadperro;
+						cout << "Ingrese edad minima: ";
+						cin>> edadinicio_buscar;
+						cout << "Ingrese edad maxima: ";
+						cin>> edadfin_buscar;
+						tam_clientes = lista_clientes.get_tam();
+						for(int i = 1; i <= tam_clientes; i++){
+							tam_perros = lista_clientes.buscar(i).num_perros;
+								for(int j = 1; j <= tam_perros; j++) {
+									edadperro= 2019-(lista_clientes.buscar(i).lista_perros.buscar(j).ano_nacimiento);
+									if(edadperro <= edadfin_buscar && edadperro >=edadinicio_buscar){
+										cout << "El perro encontrado es "<< lista_clientes.buscar(i).lista_perros.buscar(j).nombre<<endl;
+										cout << "	Su propietario es " << lista_clientes.buscar(i).nombre<< endl;
+										cout << "	Su edad es "<< edadperro << " y vive en la localidad "<<lista_clientes.buscar(i).localidad_residencia  << endl;
+										cout << endl;
+									}
+								}
+						}
+						cout << endl;
+						system("pause");
+						system("cls");
+						break;
+					}
 						default:{
 							menu2 = true;
 							break;
@@ -928,7 +936,6 @@ int main(int argc, char** argv) {
 					cin >> opcion2;
 					switch(opcion2){
 						case 1:{
-							// Inicio de simulacion
 							consulta_hora_localidad(lista_paseadores, lista_clientes, id_paseador, id_cliente);
 							//cout << id_paseador << endl; // ID del paseador que llevara acabo la solicitud
 							//cout << id_cliente << endl;  // ID del cliente que requiere la solicitud
@@ -976,53 +983,7 @@ int main(int argc, char** argv) {
 							break;
 						}
 						case 2:{
-							// Finalizacion de la somulacion
-							int cant_perros = 0;
-							lista<int> cant_perros_localidad;
-							for(int i = 0; i < 5; i++){
-								cant_perros_localidad.insertar_inicio(0);
-							}
 							
-							
-							tam_paseadores = lista_paseadores.get_tam();
-							for(int i = 1; i <= tam_paseadores; i++){
-								if(lista_paseadores.buscar(i).localidad == localidades.buscar(1)){
-									cant_perros = cant_perros_localidad.buscar(1);
-									cant_perros += lista_paseadores.buscar(i).num_perros;
-									cant_perros_localidad.cambiar(1, cant_perros);
-								}
-								if(lista_paseadores.buscar(i).localidad == localidades.buscar(2)){
-									cant_perros = cant_perros_localidad.buscar(2);
-									cant_perros += lista_paseadores.buscar(i).num_perros;
-									cant_perros_localidad.cambiar(2, cant_perros);
-								}
-								if(lista_paseadores.buscar(i).localidad == localidades.buscar(3)){
-									cant_perros = cant_perros_localidad.buscar(3);
-									cant_perros += lista_paseadores.buscar(i).num_perros;
-									cant_perros_localidad.cambiar(3, cant_perros);
-								}
-								if(lista_paseadores.buscar(i).localidad == localidades.buscar(4)){
-									cant_perros = cant_perros_localidad.buscar(4);
-									cant_perros += lista_paseadores.buscar(i).num_perros;
-									cant_perros_localidad.cambiar(4, cant_perros);
-								}
-								if(lista_paseadores.buscar(i).localidad == localidades.buscar(5)){
-									cant_perros = cant_perros_localidad.buscar(5);
-									cant_perros += lista_paseadores.buscar(i).num_perros;
-									cant_perros_localidad.cambiar(5, cant_perros);
-								}
-							}
-							
-							int tam_cant_localidad = cant_perros_localidad.get_tam();
-							cout << "Perros Atendidos" << endl;
-							for(int i = 1; i <= tam_cant_localidad; i++){
-								cout << "Localidad " << localidades.buscar(i) << ": "<<cant_perros_localidad.buscar(i) << " Perros" << endl;
-							}
-							cout << endl;
-							
-							system("pause");
-							system("cls");
-							menu2 = true;
 							break;
 						}
 						default:{
