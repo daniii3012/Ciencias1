@@ -275,7 +275,7 @@ int main(int argc, char** argv) {
 	
 	while(!menu1){
 		menu2 = false;
-		
+		system("cls");
 		cout << "1) Administrar" << endl;
 		cout << "2) Consulta 1" << endl;
 		cout << "3) Consulta 2" << endl;
@@ -288,7 +288,7 @@ int main(int argc, char** argv) {
 			case 1:{
 				while(!menu2){
 					menu3 = false;
-					
+					system("cls");
 					cout << "1) Sucursales" << endl;
 					cout << "2) Paseadores" << endl;
 					cout << "3) Clientes" << endl;
@@ -298,6 +298,7 @@ int main(int argc, char** argv) {
 					switch(opcion2){
 						case 1:{
 							while(!menu3){
+								system("cls");
 								cout << "1) Ver Sucursales" << endl;
 								cout << "2) Agregar Sucursal" << endl;
 								cout << "3) Modificar Sucursal" << endl;
@@ -321,6 +322,8 @@ int main(int argc, char** argv) {
 											cout << endl;
 										}
 										cout << endl;
+										system("pause");
+										system("cls");
 										break;
 									}
 									case 2:{
@@ -359,7 +362,7 @@ int main(int argc, char** argv) {
 										lista_sucursales.insertar_inicio(sucursal);
 										
 										write_file_sucursales(lista_sucursales);
-										
+										system("cls");
 										break;
 									}
 									case 3:{
@@ -412,7 +415,7 @@ int main(int argc, char** argv) {
 										}
 										
 										write_file_sucursales(lista_sucursales);
-										
+										system("cls");
 										break;
 									}
 									case 4:{
@@ -436,7 +439,7 @@ int main(int argc, char** argv) {
 										}
 										
 										write_file_sucursales(lista_sucursales);
-										
+										system("cls");
 										break;
 									}
 									default:{
@@ -448,6 +451,7 @@ int main(int argc, char** argv) {
 						}
 						case 2:{
 							while(!menu3){
+								system("cls");
 								cout << "1) Ver Paseadores" << endl;
 								cout << "2) Agregar Paseador" << endl;
 								cout << "3) Modificar Paseador" << endl;
@@ -481,6 +485,8 @@ int main(int argc, char** argv) {
 											cout << endl;
 										}
 										cout << endl;
+										system("pause");
+										system("cls");
 										break;
 									}
 									case 2:{
@@ -579,11 +585,12 @@ int main(int argc, char** argv) {
 										
 										write_file_paseadores(lista_paseadores);
 										write_file_sucursales(lista_sucursales);
-										
+										system("cls");
 										break;
 									}
 									case 3:{
 										write_file_paseadores(lista_paseadores);
+										system("cls");
 										break;
 									}
 									case 4:{
@@ -615,6 +622,7 @@ int main(int argc, char** argv) {
 										
 										write_file_paseadores(lista_paseadores);
 										write_file_sucursales(lista_sucursales);
+										system("cls");
 										break;
 									}
 									default:{
@@ -626,6 +634,7 @@ int main(int argc, char** argv) {
 						}
 						case 3:{
 							while(!menu3){
+								system("cls");
 								cout << "1) Ver Clientes" << endl;
 								cout << "2) Agregar Cliente" << endl;
 								cout << "3) Modificar Cliente" << endl;
@@ -647,7 +656,7 @@ int main(int argc, char** argv) {
 											cout << endl;
 											
 											for(int j = 1; j <= tam_perros; j++){
-												cout << lista_clientes.buscar(i).lista_perros.buscar(j).id << " ";
+												cout << "  " << lista_clientes.buscar(i).lista_perros.buscar(j).id << " ";
 												cout << lista_clientes.buscar(i).lista_perros.buscar(j).nombre << " ";
 												cout << lista_clientes.buscar(i).lista_perros.buscar(j).mes_nacimiento << " ";
 												cout << lista_clientes.buscar(i).lista_perros.buscar(j).ano_nacimiento << " ";
@@ -656,20 +665,26 @@ int main(int argc, char** argv) {
 												cout << lista_clientes.buscar(i).lista_perros.buscar(j).concentrado << " ";
 												cout << endl;
 											}
+											cout << endl;
 										}
 										cout << endl;
+										system("pause");
+										system("cls");
 										break;
 									}
 									case 2:{
 										write_file_clientes(lista_clientes);
+										system("cls");
 										break;
 									}
 									case 3:{
 										write_file_clientes(lista_clientes);
+										system("cls");
 										break;
 									}
 									case 4:{
 										write_file_clientes(lista_clientes);
+										system("cls");
 										break;
 									}
 									default:{
@@ -711,6 +726,8 @@ int main(int argc, char** argv) {
 					}
 				}
 				cout << endl;
+				system("pause");
+				system("cls");
 				break;
 			}
 			case 3:{
@@ -739,6 +756,8 @@ int main(int argc, char** argv) {
 					}
 				}
 				cout << endl;
+				system("pause");
+				system("cls");
 				break;
 			}
 			case 4:{
@@ -780,6 +799,8 @@ int main(int argc, char** argv) {
 					}	
 				}		
 				cout << endl;
+				system("pause");
+				system("cls");
 				break;
 			}
 			case 5:{
@@ -803,6 +824,8 @@ int main(int argc, char** argv) {
 					}
 				}
 				cout << endl;
+				system("pause");
+				system("cls");
 				break;
 			}
 			default:{
@@ -811,6 +834,7 @@ int main(int argc, char** argv) {
 		}
 	}
 	
+	
+	
 	return 0;
 }
-
