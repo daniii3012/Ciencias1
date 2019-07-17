@@ -719,7 +719,7 @@ int main(int argc, char** argv) {
 						//		cout<<"Carrera es menor que cra fin";
 								if(lista_sucursales.buscar(i).carrera_inicio < cra_buscar ){
 						//				cout<<"Carrera es menor que cra fin";
-										cout <<"La sucursal que puede hacerse cargo es: " <<lista_sucursales.buscar(i).nombre_sucursal << " ";				
+										cout <<"La sucursal que puede hacerse cargo es: " <<lista_sucursales.buscar(i).nombre_sucursal << " " << endl;				
 								}
 							}
 						}
@@ -751,6 +751,7 @@ int main(int argc, char** argv) {
 								cout<<"El paseador encargado es: ";
 								cout << lista_paseadores.buscar(i).nombre << " ";
 								cout << lista_paseadores.buscar(i).apellido << " ";
+								cout << endl;
 							}
 						}
 					}
