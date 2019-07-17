@@ -317,7 +317,7 @@ int main(int argc, char** argv) {
 		menu2 = false;
 		system("cls");
 		cout << " ____                      _____     _   " << endl;
-		cout << "|    / ___ ___ ___ ___ ___|     |_ _| |_ " << endl;
+		cout << "|    \\ ___ ___ ___ ___ ___|     |_ _| |_ " << endl;
 		cout << "|  |  | . | . | . | -_|  _|  |  | | |  _|" << endl;
 		cout << "|____/|___|_  |_  |___|_| |_____|___|_|  " << endl;
         cout << "          |___|___|                      " << endl << endl;
