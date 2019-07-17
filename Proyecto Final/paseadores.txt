@@ -22,3 +22,7 @@ SucursalCiudadBolivar Gabriela Antolinez CC 1032502101 Femenino 7150900 31339743
 agantolinezs@gmail.com 9 4 1999 Bogota Colombia direccion CiudadBolivar 7 12
 SucursalTeusaquillo Daniel Montiel CC 1013693586 Masculino 6570494 3505941050
 daniel_301999@hotmail.com 30 12 1999 Bogota Colombia direccion Teusaquillo 7 12
+SucursalMartires Edwin Montes CC 67535137 Masculino 3773995 3137842536
+edmon1806@gmail.com 18 06 1995 Bogota Colombia Cr22#27-8 Martires 7 18
+SucursalTunjuelito Miranda Pedraza CC 84451805 Femenino 8115784 3109584623
+pedrazamiranda@yahoo.com 20 03 1994 Bogota Colombia Cr37#52-52 Tunjuelito 7 18

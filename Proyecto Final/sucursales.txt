@@ -4,3 +4,5 @@ SucursalKennedy AngelinaRossetti Kennedy -40 69 17 84 2 1
 SucursalCiudadBolivar JaimeSalvador CiudadBolivar -116 -13 -62 67 2 2
 SucursalKennedy2 RobertoMarino Kennedy -56 69 17 107 2 1
 SucursalChapinero AndreaLozada Chapinero 39 1 99 14 2 2
+SucursalTunjuelito IreneGomez Tunjuelito -51 28 -38 71 1 0
+SucursalMartires AndresVillareal Martires -2 13 26 34 1 0

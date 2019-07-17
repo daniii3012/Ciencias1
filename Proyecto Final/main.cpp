@@ -1046,7 +1046,7 @@ int main(int argc, char** argv) {
 							
 							system("pause");
 							system("cls");
-							
+							menu1 = true;
 							menu2 = true;
 							break;
 						}
