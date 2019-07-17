@@ -5,6 +5,7 @@
 #ifndef PASEADOR_H
 #define PASEADOR_H
 #include "lista.h"
+#include "cliente.h"
 
 struct Paseador{
 	string sucursal;
@@ -31,7 +32,7 @@ struct Paseador{
 	
 	int num_perros;
 	
-	lista<int> perros_paseador;
+	lista<Perro> perros_paseador;
 };
 
 #endif

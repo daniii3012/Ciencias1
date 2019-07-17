@@ -25,6 +25,142 @@
 
 using namespace std;
 
+long long tel_celular, id;
+int tam_sucursales, tam_paseadores, tam_clientes, tam_perros, num_paseadores, num_clientes, tel_fijo,
+	dia_nacimiento, mes_nacimiento, ano_nacimiento, num_perros, h_entrada, h_salida;
+string nom_sucursal, nom_gerente, localidad;
+int cll_inicio, cr_inicio, cll_fin, cr_fin;
+string nombre, apellido, tipo_id, sexo, e_mail, ciudad_nacimiento, pais_nacimiento, dir_paseador, localidad_paseador,
+	raza, tamano, concentrado;
+
+void read_file_sucursales(lista<Sucursal>& lista_sucursales, Sucursal& sucursal){
+	// Lectura de sucursales y creacion de la lista sucursales  	
+	ifstream file_in_sucursales("sucursales.txt", ios::in);
+ 	if (!file_in_sucursales.good()){
+	 	cerr << "No se pudo abrir el archivo" << endl;
+    	exit(1);
+	}	 
+ 	while(!file_in_sucursales.eof()){
+    	file_in_sucursales >> nom_sucursal;
+    	sucursal.nombre_sucursal = nom_sucursal;
+    	file_in_sucursales >> nom_gerente;
+    	sucursal.nombre_gerente = nom_gerente;
+    	file_in_sucursales >> localidad;
+    	sucursal.localidad = localidad;
+    	file_in_sucursales >> cll_inicio;
+    	sucursal.calle_inicio = cll_inicio;
+    	file_in_sucursales >> cr_inicio;
+    	sucursal.carrera_inicio = cr_inicio;
+    	file_in_sucursales >> cll_fin;
+    	sucursal.calle_fin = cll_fin;
+    	file_in_sucursales >> cr_fin;
+    	sucursal.carrera_fin = cr_fin;
+    	file_in_sucursales >> num_paseadores;
+    	sucursal.num_paseadores = num_paseadores;
+    	file_in_sucursales >> num_clientes;
+    	sucursal.num_clientes = num_clientes;
+    	
+    	lista_sucursales.insertar_inicio(sucursal);
+   	}
+	file_in_sucursales.close();
+}
+
+void read_file_paseadores(lista<Paseador>& lista_paseadores, Paseador& paseador){
+	// Lectura de los paseadores y creacion de la lista de paseadores
+	ifstream file_in_paseadores("paseadores.txt", ios::in);
+ 	if (!file_in_paseadores.good()){
+	 	cerr << "No se pudo abrir el archivo" << endl;
+    	exit(1);
+	}
+	while(!file_in_paseadores.eof()){
+    	file_in_paseadores >> nom_sucursal;
+    	paseador.sucursal = nom_sucursal;
+    	file_in_paseadores >> nombre;
+    	paseador.nombre = nombre;
+    	file_in_paseadores >> apellido;
+    	paseador.apellido = apellido;
+    	file_in_paseadores >> tipo_id;
+    	paseador.tipo_id = tipo_id;
+    	file_in_paseadores >> id;
+    	paseador.id = id;
+    	file_in_paseadores >> sexo;
+    	paseador.sexo = sexo;
+    	file_in_paseadores >> tel_fijo;
+    	paseador.tel_fijo = tel_fijo;
+    	file_in_paseadores >> tel_celular;
+    	paseador.tel_celular = tel_celular;
+    	file_in_paseadores >> e_mail;
+    	paseador.e_mail = e_mail;
+    	file_in_paseadores >> dia_nacimiento;
+    	paseador.dia_nacimiento = dia_nacimiento;
+    	file_in_paseadores >> mes_nacimiento;
+    	paseador.mes_nacimiento = mes_nacimiento;
+    	file_in_paseadores >> ano_nacimiento;
+    	paseador.ano_nacimiento = ano_nacimiento;
+    	file_in_paseadores >> ciudad_nacimiento;
+    	paseador.ciudad_nacimiento = ciudad_nacimiento;
+    	file_in_paseadores >> pais_nacimiento;
+    	paseador.pais_nacimiento = pais_nacimiento;
+    	file_in_paseadores >> dir_paseador;
+    	paseador.direccion = dir_paseador;
+    	file_in_paseadores >> localidad_paseador;
+    	paseador.localidad = localidad_paseador;
+    	file_in_paseadores >> h_entrada;
+    	paseador.hora_entrada = h_entrada;
+    	file_in_paseadores >> h_salida;
+    	paseador.hora_salida = h_salida;
+    	paseador.num_perros = 0;
+    	
+    	lista_paseadores.insertar_inicio(paseador);
+   	}
+   	file_in_paseadores.close();
+}
+
+void read_file_clientes(lista< Cliente<Perro> >& lista_clientes, Cliente<Perro>& cliente, Perro& perro){
+	// Lectura de clientes y creacion de la lista de clientes
+   	ifstream file_in_clientes("clientes.txt", ios::in);
+ 	if (!file_in_clientes.good()){
+	 	cerr << "No se pudo abrir el archivo" << endl;
+    	exit(1);
+	}
+ 	while(!file_in_clientes.eof()){
+    	file_in_clientes >> nombre;
+    	cliente.nombre = nombre;
+    	file_in_clientes >> apellido;
+    	cliente.apellido = apellido;
+    	file_in_clientes >> id;
+    	cliente.id = id;
+    	file_in_clientes >> sexo;
+    	cliente.sexo = sexo;
+    	file_in_clientes >> localidad;
+    	cliente.localidad_residencia = localidad;
+    	file_in_clientes >> num_perros;
+    	cliente.num_perros = num_perros;
+
+    	for(int i = 0; i < num_perros; i++){
+    		file_in_clientes >> id;
+    		perro.id = id;
+    		file_in_clientes >> nombre;
+    		perro.nombre = nombre;
+    		file_in_clientes >> mes_nacimiento;
+    		perro.mes_nacimiento = mes_nacimiento;
+    		file_in_clientes >> ano_nacimiento;
+    		perro.ano_nacimiento = ano_nacimiento;
+    		file_in_clientes >> raza;
+    		perro.raza = raza;
+    		file_in_clientes >> tamano;
+    		perro.tamano = tamano;
+    		file_in_clientes >> concentrado;
+    		perro.concentrado = concentrado;
+    		
+    		cliente.lista_perros.insertar_inicio(perro);
+		}
+    	
+    	lista_clientes.insertar_inicio(cliente);
+   	}
+	file_in_clientes.close();
+}
+
 void write_file_sucursales(lista<Sucursal> lista_sucursales){
 	ofstream file_out_sucursales("sucursales.txt", ios::out|ios::trunc);
  	if (!file_out_sucursales.good()){
@@ -121,10 +257,14 @@ void consulta_hora_localidad(lista<Paseador> lista_paseadores, lista< Cliente<Pe
 	cin>> nombre_buscar;
 	cout << "Ingrese apellido de cliente: "	;
 	cin>> apellido_buscar;
-	cout << "Ingrese la hora de inicio: "	;
-	cin>> horainicio_buscar;
-	cout << "Ingrese la hora de fin: "	;
-	cin>> horafin_buscar;
+	do{
+		cout << "Ingrese la hora de inicio: "	;
+		cin>> horainicio_buscar;
+	}while(horainicio_buscar <= 6 || horainicio_buscar >= 19);
+	do{
+		cout << "Ingrese la hora de fin: "	;
+		cin>> horafin_buscar;
+	}while(horafin_buscar <= 6 || horafin_buscar >= 19 || horafin_buscar < horainicio_buscar);
 		
 	int tam_clientes = lista_clientes.get_tam();
 	int tam_paseadores = lista_paseadores.get_tam();
@@ -165,149 +305,22 @@ int main(int argc, char** argv) {
 	
 	int pos_save = 0;
 	bool modificar = false;
-	long long tel_celular, id;
-	int tam_sucursales, tam_paseadores, tam_clientes, tam_perros, num_paseadores, num_clientes, tel_fijo,
-		dia_nacimiento, mes_nacimiento, ano_nacimiento, num_perros, h_entrada, h_salida;
-	string nom_sucursal, nom_gerente, localidad;
-	int cll_inicio, cr_inicio, cll_fin, cr_fin;
 	
 	Sucursal sucursal;	
 	lista<Sucursal> lista_sucursales;
-	
-	string nombre, apellido, tipo_id, sexo, e_mail, ciudad_nacimiento, pais_nacimiento, dir_paseador, localidad_paseador,
-		raza, tamano, concentrado;
 	
 	Paseador paseador;
 	lista<Paseador> lista_paseadores;
 	
 	lista< Cliente<Perro> > lista_clientes;
-	Perro perro;
 	Cliente<Perro> cliente;
+	Perro perro;
 	
+	read_file_sucursales(lista_sucursales, sucursal);
 	
-	// Lectura de sucursales y creacion de la lista sucursales  	
-	ifstream file_in_sucursales("sucursales.txt", ios::in);
- 	if (!file_in_sucursales.good()){
-	 	cerr << "No se pudo abrir el archivo" << endl;
-    	exit(1);
-	}	 
- 	while(!file_in_sucursales.eof()){
-    	file_in_sucursales >> nom_sucursal;
-    	sucursal.nombre_sucursal = nom_sucursal;
-    	file_in_sucursales >> nom_gerente;
-    	sucursal.nombre_gerente = nom_gerente;
-    	file_in_sucursales >> localidad;
-    	sucursal.localidad = localidad;
-    	file_in_sucursales >> cll_inicio;
-    	sucursal.calle_inicio = cll_inicio;
-    	file_in_sucursales >> cr_inicio;
-    	sucursal.carrera_inicio = cr_inicio;
-    	file_in_sucursales >> cll_fin;
-    	sucursal.calle_fin = cll_fin;
-    	file_in_sucursales >> cr_fin;
-    	sucursal.carrera_fin = cr_fin;
-    	file_in_sucursales >> num_paseadores;
-    	sucursal.num_paseadores = num_paseadores;
-    	file_in_sucursales >> num_clientes;
-    	sucursal.num_clientes = num_clientes;
-    	
-    	lista_sucursales.insertar_inicio(sucursal);
-   	}
-	file_in_sucursales.close();
+	read_file_paseadores(lista_paseadores, paseador);
 	
-	
-	// Lectura de los paseadores y creacion de la lista de paseadores
-	ifstream file_in_paseadores("paseadores.txt", ios::in);
- 	if (!file_in_paseadores.good()){
-	 	cerr << "No se pudo abrir el archivo" << endl;
-    	exit(1);
-	}
-	while(!file_in_paseadores.eof()){
-    	file_in_paseadores >> nom_sucursal;
-    	paseador.sucursal = nom_sucursal;
-    	file_in_paseadores >> nombre;
-    	paseador.nombre = nombre;
-    	file_in_paseadores >> apellido;
-    	paseador.apellido = apellido;
-    	file_in_paseadores >> tipo_id;
-    	paseador.tipo_id = tipo_id;
-    	file_in_paseadores >> id;
-    	paseador.id = id;
-    	file_in_paseadores >> sexo;
-    	paseador.sexo = sexo;
-    	file_in_paseadores >> tel_fijo;
-    	paseador.tel_fijo = tel_fijo;
-    	file_in_paseadores >> tel_celular;
-    	paseador.tel_celular = tel_celular;
-    	file_in_paseadores >> e_mail;
-    	paseador.e_mail = e_mail;
-    	file_in_paseadores >> dia_nacimiento;
-    	paseador.dia_nacimiento = dia_nacimiento;
-    	file_in_paseadores >> mes_nacimiento;
-    	paseador.mes_nacimiento = mes_nacimiento;
-    	file_in_paseadores >> ano_nacimiento;
-    	paseador.ano_nacimiento = ano_nacimiento;
-    	file_in_paseadores >> ciudad_nacimiento;
-    	paseador.ciudad_nacimiento = ciudad_nacimiento;
-    	file_in_paseadores >> pais_nacimiento;
-    	paseador.pais_nacimiento = pais_nacimiento;
-    	file_in_paseadores >> dir_paseador;
-    	paseador.direccion = dir_paseador;
-    	file_in_paseadores >> localidad_paseador;
-    	paseador.localidad = localidad_paseador;
-    	file_in_paseadores >> h_entrada;
-    	paseador.hora_entrada = h_entrada;
-    	file_in_paseadores >> h_salida;
-    	paseador.hora_salida = h_salida;
-    	paseador.num_perros = 0;
-    	
-    	lista_paseadores.insertar_inicio(paseador);
-   	}
-   	file_in_paseadores.close();
-   	
-   	
-   	// Lectura de clientes y creacion de la lista de clientes
-   	ifstream file_in_clientes("clientes.txt", ios::in);
- 	if (!file_in_clientes.good()){
-	 	cerr << "No se pudo abrir el archivo" << endl;
-    	exit(1);
-	}
- 	while(!file_in_clientes.eof()){
-    	file_in_clientes >> nombre;
-    	cliente.nombre = nombre;
-    	file_in_clientes >> apellido;
-    	cliente.apellido = apellido;
-    	file_in_clientes >> id;
-    	cliente.id = id;
-    	file_in_clientes >> sexo;
-    	cliente.sexo = sexo;
-    	file_in_clientes >> localidad;
-    	cliente.localidad_residencia = localidad;
-    	file_in_clientes >> num_perros;
-    	cliente.num_perros = num_perros;
-
-    	for(int i = 0; i < num_perros; i++){
-    		file_in_clientes >> id;
-    		perro.id = id;
-    		file_in_clientes >> nombre;
-    		perro.nombre = nombre;
-    		file_in_clientes >> mes_nacimiento;
-    		perro.mes_nacimiento = mes_nacimiento;
-    		file_in_clientes >> ano_nacimiento;
-    		perro.ano_nacimiento = ano_nacimiento;
-    		file_in_clientes >> raza;
-    		perro.raza = raza;
-    		file_in_clientes >> tamano;
-    		perro.tamano = tamano;
-    		file_in_clientes >> concentrado;
-    		perro.concentrado = concentrado;
-    		
-    		cliente.lista_perros.insertar_inicio(perro);
-		}
-    	
-    	lista_clientes.insertar_inicio(cliente);
-   	}
-	file_in_clientes.close();
+   	read_file_clientes(lista_clientes, cliente, perro);
 	
 	//
 	//			MENU
@@ -916,12 +929,13 @@ int main(int argc, char** argv) {
 			}
 			case 3:{
 				while(!menu2){
-					int id_paseador, id_cliente, id_perro;
+					int id_paseador, id_cliente, id_perro, pos1, pos2;
 					modificar = false;
 					menu3 = false;
 					system("cls");
 					cout << "1) Solicitar paseador." << endl;
 					cout << "2) Terminar simulacion." << endl;
+					cout << "3) Atras" << endl;
 					cin >> opcion2;
 					switch(opcion2){
 						case 1:{
@@ -937,8 +951,12 @@ int main(int argc, char** argv) {
 									for(int j = 1; j <= tam_clientes; j++){
 										tam_perros = lista_clientes.buscar(j).num_perros;
 										if(lista_clientes.buscar(j).id == id_cliente){
+											cliente = lista_clientes.buscar(j);
+											pos1=j;
 											for(int k = 1; k <= tam_perros; k++){
-												id_perro = lista_clientes.buscar(j).lista_perros.buscar(k).id;
+												pos2=k;
+												perro = lista_clientes.buscar(j).lista_perros.buscar(k);
+												//id_perro = lista_clientes.buscar(j).lista_perros.buscar(k).id;
 												modificar = true;
 												break;
 											}
@@ -949,9 +967,20 @@ int main(int argc, char** argv) {
 							
 							if(modificar){
 								lista_paseadores.borrar_nodo(pos_save);
-								paseador.num_perros++;
-								paseador.perros_paseador.insertar_inicio(id_perro);
+								lista_clientes.borrar_nodo(pos1);
+								if(paseador.num_perros <= 1 && cliente.num_perros >= 1){
+									cout << "El perro " << cliente.lista_perros.buscar(pos2).nombre << " ha sido añadido al paseador " << paseador.nombre << endl;
+									cliente.num_perros--;
+									cliente.lista_perros.borrar_nodo(pos2);
+									paseador.num_perros++;
+									paseador.perros_paseador.insertar_inicio(perro);
+								}else if(paseador.num_perros >= 2){
+									cout << "El paseador no esta disponible" << endl;
+								}
+								lista_clientes.insertar_inicio(cliente);
 								lista_paseadores.insertar_inicio(paseador);
+							}else if(lista_clientes.buscar(pos1).num_perros < 1){
+								cout << "El cliente no posee mas perros" << endl;
 							}
 							
 							system("pause");
@@ -963,7 +992,7 @@ int main(int argc, char** argv) {
 							break;
 						}
 						default:{
-							
+							menu2 = true;
 							break;
 						}
 					}
