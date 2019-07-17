@@ -1,28 +1,34 @@
-SucursalKennedy2 Estela Jimena CC 48641345 Femenino 4554953 3184567891
-jxgarcia@gmail.com 9 4 1975 Bogota Colombia Cl8#79-10 Kennedy 12 18
-SucursalKennedy2 Santiago Cazares CC 64171326 Masculino 4662846 3132691584
-fusantiago20@yahoo.com 4 6 1992 Bogota Colombia Cl35d#78-2 Kennedy 7 12
-SucursalCiudadBolivar Roberto Legaza CC 79063749 Masculino 5994524 3501478523
-dhariztimuno@gmail.com 3 5 1989 Bogota Colombia Cl62#70-55 CiudadBolivar 12 18
-SucursalCiudadBolivar Valentina Bueno CC 1016846953 Femenino 3467958 3505203698
-vabueno@hotmail.com 8 8 1999 Bogota Colombia Cra71#50-60 Teusaquillo 12 18
-SucursalKennedy Agustin Rivas CC 74029568 Masculino 6886423 3118567432
-clagustink@yahoo.es 22 6 1978 Ibague Colombia Cl10a#72a-2 Kennedy 12 18
-SucursalKennedy Ignacio Bob CC 5622372 Masculino 3002047 3144123212
-fdignacio3@gmail.com 12 10 1991 Bogota Colombia Cl4#75-93 Kennedy 7 12
-SucursalChapinero Hector Arola CE 245714 Masculino 7442199 9550420199
-alhector11@hotmail.com 16 9 1996 Caracas Venezuela Cra8#12a-59 Chapinero 7 12
-SucursalChapinero Alexandra Bartos CC 55780139 Femenino 4992551 3144562581
-alexabartos@hotmail.com 4 4 1979 Pasto Colombia Cll20b#43a-54 Chapinero 12 18
-SucursalSuba Sofia Vayas CC 42566485 Femenino 5558024 3187915328
-fwsofiar22@gmail.com 4 9 1985 Medellin Colombia Cl128#93-71 Suba 7 12
-SucursalSuba Benito Padilla CC 45662845 Masculino 9632587 3104568574
-bpadilla@yahoo.com 14 2 2000 Pereira Colombia Cr109#63a-96 Suba 12 18
-SucursalCiudadBolivar Gabriela Antolinez CC 1032502101 Femenino 7150900 3133974303
-agantolinezs@gmail.com 9 4 1999 Bogota Colombia direccion CiudadBolivar 7 12
+LaCabrera Maria Moliner CE 1010106332 Femenino 7789965 3153183145
+maria@ccom.com 15 11 1995 Barcelona España Cl80#20-13 Martires 9 17
+ElNogal Ana Ramirez CE 98765432 Femenino 2658974 31035769282
+ana@ccom.com 29 6 1997 Madrid España Cl75#3-25 Kennedy 10 16
+LaCabrera Pedro Rodriguez CC 12345678 Masculino 4785623 3006009000
+Pedro@ccom.com 5 6 1970 Bogota Colombia Cra16#92-13 CiudadBolivar 8 13
+SucursalTunjuelito Miranda Pedraza CC 84451805 Femenino 8115784 3109584623
+pedrazamiranda@yahoo.com 20 3 1994 Bogota Colombia Cr37#52-52 Tunjuelito 7 18
+SucursalMartires Edwin Montes CC 67535137 Masculino 3773995 3137842536
+edmon1806@gmail.com 18 6 1995 Bogota Colombia Cr22#27-8 Martires 7 18
 SucursalTeusaquillo Daniel Montiel CC 1013693586 Masculino 6570494 3505941050
 daniel_301999@hotmail.com 30 12 1999 Bogota Colombia direccion Teusaquillo 7 12
-SucursalMartires Edwin Montes CC 67535137 Masculino 3773995 3137842536
-edmon1806@gmail.com 18 06 1995 Bogota Colombia Cr22#27-8 Martires 7 18
-SucursalTunjuelito Miranda Pedraza CC 84451805 Femenino 8115784 3109584623
-pedrazamiranda@yahoo.com 20 03 1994 Bogota Colombia Cr37#52-52 Tunjuelito 7 18
+SucursalCiudadBolivar Gabriela Antolinez CC 1032502101 Femenino 7150900 3133974303
+agantolinezs@gmail.com 9 4 1999 Bogota Colombia direccion CiudadBolivar 7 12
+SucursalSuba Benito Padilla CC 45662845 Masculino 9632587 3104568574
+bpadilla@yahoo.com 14 2 2000 Pereira Colombia Cr109#63a-96 Suba 12 18
+SucursalSuba Sofia Vayas CC 42566485 Femenino 5558024 3187915328
+fwsofiar22@gmail.com 4 9 1985 Medellin Colombia Cl128#93-71 Suba 7 12
+SucursalChapinero Alexandra Bartos CC 55780139 Femenino 4992551 3144562581
+alexabartos@hotmail.com 4 4 1979 Pasto Colombia Cll20b#43a-54 Chapinero 12 18
+SucursalChapinero Hector Arola CE 245714 Masculino 7442199 9550420199
+alhector11@hotmail.com 16 9 1996 Caracas Venezuela Cra8#12a-59 Chapinero 7 12
+SucursalKennedy Ignacio Bob CC 5622372 Masculino 3002047 3144123212
+fdignacio3@gmail.com 12 10 1991 Bogota Colombia Cl4#75-93 Kennedy 7 12
+SucursalKennedy Agustin Rivas CC 74029568 Masculino 6886423 3118567432
+clagustink@yahoo.es 22 6 1978 Ibague Colombia Cl10a#72a-2 Kennedy 12 18
+SucursalCiudadBolivar Valentina Bueno CC 1016846953 Femenino 3467958 3505203698
+vabueno@hotmail.com 8 8 1999 Bogota Colombia Cra71#50-60 Teusaquillo 12 18
+SucursalCiudadBolivar Roberto Legaza CC 79063749 Masculino 5994524 3501478523
+dhariztimuno@gmail.com 3 5 1989 Bogota Colombia Cl62#70-55 CiudadBolivar 12 18
+SucursalKennedy2 Santiago Cazares CC 64171326 Masculino 4662846 3132691584
+fusantiago20@yahoo.com 4 6 1992 Bogota Colombia Cl35d#78-2 Kennedy 7 12
+SucursalKennedy2 Estela Jimena CC 48641345 Femenino 4554953 3184567891
+jxgarcia@gmail.com 9 4 1975 Bogota Colombia Cl8#79-10 Kennedy 12 18
