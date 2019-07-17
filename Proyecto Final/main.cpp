@@ -35,7 +35,7 @@ int num_paseadores, num_clientes, num_perros;
 int	dia_nacimiento, mes_nacimiento, ano_nacimiento;
 int tel_fijo, h_entrada, h_salida;
 int cll_inicio, cr_inicio, cll_fin, cr_fin;
-string nombre, apellido, tipo_id, sexo, e_mail;
+string nombre, apellido, tipo_id, genero, e_mail;
 string ciudad_nacimiento, pais_nacimiento, dir_paseador, localidad_paseador;
 string raza, tamano, concentrado;
 string nom_sucursal, nom_gerente, localidad;
@@ -89,8 +89,8 @@ void read_file_paseadores(lista<Paseador>& lista_paseadores, Paseador& paseador)
     	paseador.tipo_id = tipo_id;
     	file_in_paseadores >> id;
     	paseador.id = id;
-    	file_in_paseadores >> sexo;
-    	paseador.sexo = sexo;
+    	file_in_paseadores >> genero;
+    	paseador.genero = genero;
     	file_in_paseadores >> tel_fijo;
     	paseador.tel_fijo = tel_fijo;
     	file_in_paseadores >> tel_celular;
@@ -135,8 +135,8 @@ void read_file_clientes(lista< Cliente<Perro> >& lista_clientes, Cliente<Perro>&
     	cliente.apellido = apellido;
     	file_in_clientes >> id;
     	cliente.id = id;
-    	file_in_clientes >> sexo;
-    	cliente.sexo = sexo;
+    	file_in_clientes >> genero;
+    	cliente.genero = genero;
     	file_in_clientes >> localidad;
     	cliente.localidad_residencia = localidad;
     	file_in_clientes >> num_perros;
@@ -201,7 +201,7 @@ void write_file_paseadores(lista<Paseador> lista_paseadores){
 		file_out_paseadores << lista_paseadores.buscar(i).apellido << " ";
 		file_out_paseadores << lista_paseadores.buscar(i).tipo_id << " ";
 		file_out_paseadores << lista_paseadores.buscar(i).id << " ";
-		file_out_paseadores << lista_paseadores.buscar(i).sexo << " ";
+		file_out_paseadores << lista_paseadores.buscar(i).genero << " ";
 		file_out_paseadores << lista_paseadores.buscar(i).tel_fijo << " ";
 		file_out_paseadores << lista_paseadores.buscar(i).tel_celular << "\n";
 		file_out_paseadores << lista_paseadores.buscar(i).e_mail << " ";
@@ -235,7 +235,7 @@ void write_file_clientes(lista< Cliente<Perro> > lista_clientes){
 		file_out_clientes << lista_clientes.buscar(i).nombre << " ";
 		file_out_clientes << lista_clientes.buscar(i).apellido << " ";
 		file_out_clientes << lista_clientes.buscar(i).id << " ";
-		file_out_clientes << lista_clientes.buscar(i).sexo << " ";
+		file_out_clientes << lista_clientes.buscar(i).genero << " ";
 		file_out_clientes << lista_clientes.buscar(i).localidad_residencia << " ";
 		file_out_clientes << lista_clientes.buscar(i).num_perros << " ";
 		for(int j = 1; j <= tam_perros; j++){
@@ -516,7 +516,7 @@ int main(int argc, char** argv) {
 											//cout << lista_paseadores.buscar(i).apellido << " ";
 											cout << lista_paseadores.buscar(i).tipo_id << " ";
 											cout << lista_paseadores.buscar(i).id << " ";
-											cout << lista_paseadores.buscar(i).sexo << " ";
+											cout << lista_paseadores.buscar(i).genero << " ";
 											//cout << lista_paseadores.buscar(i).tel_fijo << " ";
 											//cout << lista_paseadores.buscar(i).tel_celular << " ";
 											//cout << lista_paseadores.buscar(i).e_mail << " ";
@@ -559,9 +559,9 @@ int main(int argc, char** argv) {
 												cout << "ID: ";
 												cin >> id;
 												paseador.id = id;
-												cout << "Sexo: ";
-												cin >> sexo;
-												paseador.sexo = sexo;
+												cout << "genero: ";
+												cin >> genero;
+												paseador.genero = genero;
 												cout << "Telefono fijo: ";
 												cin >> tel_fijo;
 												paseador.tel_fijo = tel_fijo;
@@ -708,7 +708,7 @@ int main(int argc, char** argv) {
 											cout << lista_clientes.buscar(i).nombre << " ";
 											cout << lista_clientes.buscar(i).apellido << " ";
 											cout << lista_clientes.buscar(i).id << " ";
-											cout << lista_clientes.buscar(i).sexo << " ";
+											cout << lista_clientes.buscar(i).genero << " ";
 											cout << lista_clientes.buscar(i).localidad_residencia << " ";
 											cout << endl;
 											for(int j = 1; j <= tam_perros; j++){

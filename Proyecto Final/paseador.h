@@ -13,7 +13,7 @@ struct Paseador{
 	string apellido;
 	string tipo_id;
 	long long id;
-	string sexo;
+	string genero;
 	int tel_fijo;
 	long long tel_celular;
 	string e_mail;

@@ -25,7 +25,7 @@ struct Cliente{
 	string nombre;
 	string apellido;
 	long long id;
-	string sexo;
+	string genero;
 	string localidad_residencia;
 	int num_perros;
 	
