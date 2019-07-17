@@ -190,7 +190,6 @@ T lista <T>::buscar(int pos){
 	}
 }
 
-
 template <class T>
 bool lista <T>::lista_vacia(){
 	int tam = get_tam();
